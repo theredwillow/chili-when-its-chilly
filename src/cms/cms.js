@@ -32,4 +32,5 @@ CMS.registerMediaLibrary(cloudinary)
 //   // (component gives better render performance)
 //   toPreview: (obj) => (<div dangerouslySetInnerHTML={{ __html: obj.code }} />)
 // });
+CMS.registerPreviewTemplate('required-page', PagePreview)
 CMS.registerPreviewTemplate('page', PagePreview)

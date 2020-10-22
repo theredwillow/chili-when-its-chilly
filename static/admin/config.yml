@@ -13,7 +13,7 @@ public_folder: /img
 
 collections:
   - name: "required-page"
-    label: "Required Pages"
+    label: "Required Page"
     files:
       - file: "src/pages/index.md"
         label: "Home Page"

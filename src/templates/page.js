@@ -43,13 +43,17 @@ PageTemplate.propTypes = {
 const Page = ({ data }) => {
   const { markdownRemark: post } = data
 
+  const titleTemplate =
+    (post.frontmatter.title === "Home Page")
+    ? "Chili When It's Chilly"
+    : "%s - Chili When It's Chilly"
   return (
     <Layout>
       <PageTemplate
         content={post.html}
         contentComponent={HTMLContent}
         helmet={
-          <Helmet titleTemplate="%s - Chili When It's Chilly">
+          <Helmet titleTemplate={titleTemplate}>
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
