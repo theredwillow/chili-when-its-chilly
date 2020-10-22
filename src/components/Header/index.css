@@ -1,0 +1,32 @@
+#header
+{
+  background-color: var(--military-primary);
+  width: 100%;
+  height: var(--header-size);
+  padding: var(--header-padding);
+  min-height: calc(var(--header-size) + (2 * var(--header-padding)));
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  color: var(--military-blank); /* FIXME Replace with fill when you get svg */
+  /* fill: var(--military-blank); */
+  --animation-duration: 2000ms;
+  transition: height var(--animation-duration);
+}
+
+#app[scroll='0'] #header
+{
+  height: calc(var(--header-size) * 5);
+}
+
+#header > .main-display
+{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo
+{
+  height: 100%;
+}

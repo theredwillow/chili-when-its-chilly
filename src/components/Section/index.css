@@ -1,0 +1,40 @@
+.section
+{
+  --burnout-height: 75px;
+}
+
+.section:nth-child(even)
+{
+  --section-color: var(--american-red);
+}
+
+.section:nth-child(odd)
+{
+  --section-color: var(--american-white);
+}
+
+.section.first
+{
+  --section-color: var(--american-blue);
+}
+
+.content
+{
+  background-color: var(--section-color);
+  margin: 0;
+  padding: calc(var(--burnout-height) / 2);
+}
+
+.brush-stroke
+{
+  fill: var(--section-color);
+  margin: 0;
+  padding: 0;
+  height: var(--burnout-height);
+  width: 100%;
+  display: flex;
+}
+
+.brush-stroke.after {
+  transform: scaleY(-1);
+}

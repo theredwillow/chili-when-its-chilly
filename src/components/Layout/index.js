@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
+import './index.css'
+import Footer from '../Footer'
+import Header from '../Header'
+import Section from '../Section'
+import useSiteMetadata from '../SiteMetadata'
 import { withPrefix } from 'gatsby'
 
 const TemplateWrapper = ({ children }) => {
+  let [scrollPos, setScrollPos] = useState(0)
   const { title, description } = useSiteMetadata()
+  useScrollPosition(({ prevPos, currPos }) => {
+    setScrollPos(currPos.y)
+    // console.log(prevPos, currPos)
+  })
   return (
     <div>
       <Helmet>
@@ -48,9 +55,20 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
-      <Footer />
+      <div id="app" scroll={scrollPos}>
+        <Header />
+        {children}
+        <Section isLast={true}>
+          {/* <Sponsors sponsors={sponsors} /> */}
+          <span className="contact-us">
+            Contact us at info@chiliwhenitschilly.com
+          </span>
+          <span id="website-by-jared">
+            Website by <a href="https://jared-weide-portfolio.web.app/">Jared Weide</a>
+          </span>
+        </Section>
+        <Footer />
+      </div>
     </div>
   )
 }

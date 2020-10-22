@@ -1,0 +1,72 @@
+@keyframes animate-chili {
+  33.333333% {
+    transform: scale(.26458);
+  }
+  100% {
+    transform: scale(0.4) translate(-130px, -60px);
+  }
+}
+
+/* FIXME Should resize with CH_LI */
+@keyframes animate-letter-i {
+  33.333333% {
+    transform: translateY(62px);
+  }
+  100% {
+    transform: translate(-50px, 69px) scale(1.5);
+  }
+}
+
+@keyframes animate-guitar {
+  33.333333%, 100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes animate-when-its {
+  33.333333% {
+    transform: translateX(17.5px);
+  }
+  100% {
+    transform: translate(-110px, -57px) scale(2, 2);
+  }
+}
+
+@keyframes animate-chilly {
+  33.333333% {
+    transform: translateX(-17.5px);
+  }
+  100% {
+    transform: translate(-185px, -55px) scale(2, 2);
+  }
+}
+
+@keyframes animate-cook-off {
+  33.333333%, 100% {
+    transform: scale(.26458) translateY(150%);
+  }
+}
+
+#app:not([scroll='0']) #logo-chili-text {
+  animation: animate-chili var(--animation-duration) linear 1 normal forwards;
+}
+
+#app:not([scroll='0']) #logo-guitar {
+  animation: animate-guitar var(--animation-duration) linear 1 normal forwards;
+}
+
+#app:not([scroll='0']) #logo-cook-off {
+  animation: animate-cook-off var(--animation-duration) linear 1 normal forwards;
+}
+
+#app:not([scroll='0']) #logo-when-its {
+  animation: animate-when-its var(--animation-duration) linear 1 normal forwards;
+}
+
+#app:not([scroll='0']) #logo-chilly {
+  animation: animate-chilly var(--animation-duration) linear 1 normal forwards;
+}
+
+#app:not([scroll='0']) #logo-letter-i {
+  animation: animate-letter-i var(--animation-duration) linear 1 normal forwards;
+}

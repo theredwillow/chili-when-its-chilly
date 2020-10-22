@@ -1,10 +1,11 @@
 {
-  "name": "gatsby-starter-netlify-cms",
-  "description": "Example Gatsby, and Netlify CMS project",
+  "name": "chili-when-its-chili",
+  "private": true,
+  "description": "A website for the Chili When It's Chilly cook-out. CWIC is a weekend full of cooking contests, musical guests, and fun for the whole family. This npm project is built with Gatsby for use with a CMS.",
+  "author": "theredwillow",
   "version": "1.1.3",
-  "author": "Austin Green",
   "dependencies": {
-    "bulma": "^0.9.0",
+    "@n8tb1t/use-scroll-position": "^1.0.47",
     "gatsby": "^2.20.35",
     "gatsby-image": "^2.3.5",
     "gatsby-plugin-netlify": "^2.2.4",
@@ -29,6 +30,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^6.0.0",
+    "react-sticky-fill": "^0.8.4",
     "uuid": "^7.0.0"
   },
   "keywords": [

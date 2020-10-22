@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
-    description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+    title: "Chili When It's Chili",
+    description: "Chili When It's Chilly is an annual cook-out in Waller, TX. CWIC is a weekend full of cooking contests, musical guests, and fun for the whole family.",
   },
   plugins: [
     'gatsby-plugin-react-helmet',
