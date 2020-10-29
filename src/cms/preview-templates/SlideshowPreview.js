@@ -1,19 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Page from '../../templates/page'
+import { Slideshow } from '../../components/Slideshow'
 
-const PagePreview = ({ entry, widgetFor }) => (
-  <Page
+const SlideshowPreview = ({ entry, widgetFor }) => (
+  <Slideshow
     content={widgetFor('body')}
     title={entry.getIn(['data', 'title'])}
   />
 )
 
-PagePreview.propTypes = {
+SlideshowPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 }
 
-export default PagePreview
+export default SlideshowPreview
