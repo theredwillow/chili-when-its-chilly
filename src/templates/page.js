@@ -1,4 +1,6 @@
 import React from 'react'
+import remark from 'remark'
+import remarkHTML from 'remark-html'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
@@ -6,6 +8,12 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Section from '../components/Section'
 
+const toHTML = value =>
+  remark()
+    .use(remarkHTML)
+    .processSync(value)
+    .toString()
+    .replace(/\\$/gm, '<br />')
 
 const Page = ({ data }) => {
   const { markdownRemark: post } = data
@@ -16,11 +24,6 @@ const Page = ({ data }) => {
     : "%s - Chili When It's Chilly"
   
   const PostContent = HTMLContent || Content
-  const sections = post.frontmatter.sections.map((section, i) => (
-    <Section isFirst={i === 0}>
-      <PostContent content={section} />
-    </Section>
-  ))
 
   return (
     <Layout>
@@ -31,16 +34,13 @@ const Page = ({ data }) => {
           content={`${post.frontmatter.description}`}
         />
       </Helmet>
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {post.frontmatter.title}
-            </h1>
-            {sections}
-          </div>
-        </div>
-      </div>
+      {
+        post.frontmatter.sections.map((section, i) => (
+          <Section key={`section-${i}`} isFirst={i === 0}>
+            <PostContent content={toHTML(section)} />
+          </Section>
+        ))
+      }
     </Layout>
   )
 }

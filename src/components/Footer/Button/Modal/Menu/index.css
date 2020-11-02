@@ -1,0 +1,15 @@
+.menu-link
+{
+  background-color: var(--military-secondary);
+  margin: 2.5px;
+  padding: 5px;
+  border-radius: 7.5px;
+  color: var(--military-blank);
+}
+
+.link-icon
+{
+  float: right;
+  width: 20px;
+  fill: var(--military-blank);
+}

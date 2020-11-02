@@ -5,11 +5,13 @@ import Brush from './Brush'
 
 const Section = ({children, isFirst, isLast}) => (
     <div className={`section ${isFirst ? 'first' : ''}`}>
-    <div className="brush-stroke before">
-      <Brush />
-      <Brush />
-      <Brush />
-    </div>
+    {!isFirst &&
+      <div className="brush-stroke before">
+        <Brush />
+        <Brush />
+        <Brush />
+      </div>
+    }
     <div className="content">
       {children}
     </div>

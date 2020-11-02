@@ -1,0 +1,47 @@
+#cart-title
+{
+  color: var(--military-highlight);
+  font-weight: bold;
+  margin: 10px;
+}
+
+.cart-item
+{
+  padding: 5px;
+  margin: 1px;
+  background-color: var(--military-secondary);
+}
+
+.item-name
+{
+  float: left;
+}
+
+.item-price
+{
+  float: right;
+  margin-left: 5px;
+}
+
+.quantity
+{
+  float: right;
+  width: 35px;
+}
+
+#cart-total
+{
+  display: block;
+  float: right;
+  margin-top: 10px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  border-top: 2.5px solid var(--military-blank);
+}
+
+#check-out
+{
+  display: block;
+  float: right;
+  padding: 7.5px;
+}

@@ -64,7 +64,7 @@ const TemplateWrapper = ({ children }) => {
             Contact us at info@chiliwhenitschilly.com
           </span>
           <span id="website-by-jared">
-            Website by <a href="https://jared-weide-portfolio.web.app/">Jared Weide</a>
+            Website by <a href="https://jared-weide-portfolio.web.app/" target="_blank" rel="noreferrer">Jared Weide</a>
           </span>
         </Section>
         <Footer />

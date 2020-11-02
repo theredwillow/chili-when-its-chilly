@@ -23,14 +23,16 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "hidden", default: "Home Page"}
-          - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
           - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
+          - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
   - name: "page"
     label: "Page"
     folder: "src/pages/other-pages"
     create: true
+    editor:
+      preview: false
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
+      - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}

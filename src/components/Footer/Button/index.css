@@ -1,0 +1,14 @@
+#footer .button
+{
+  background-color: var(--military-secondary);
+  border-radius: 50%;
+  height: var(--header-size);
+  min-height: 25px;
+  width: var(--header-size);
+  min-width: 25px;
+}
+
+#footer .button > svg
+{
+  fill: var(--military-blank);
+}

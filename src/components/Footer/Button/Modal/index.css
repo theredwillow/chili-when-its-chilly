@@ -1,0 +1,33 @@
+#modal
+{
+  background-color: var(--military-primary);
+  position: fixed;
+  bottom: calc(var(--header-size) * 1.25);
+  max-height: calc((100% - (2.5 * var(--header-size)) - var(--header-padding)));
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 1s linear;
+  z-index: 1;
+  border: 5px solid var(--military-highlight);
+  padding: 20px;
+  color: var(--military-blank);
+  display: flex;
+  flex-direction: column;
+}
+
+#modal button
+{
+  font-weight: bold;
+}
+
+#modal.closed
+{
+  top: 100vh;
+}
+
+.close-button
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
