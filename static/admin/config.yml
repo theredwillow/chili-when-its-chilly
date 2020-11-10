@@ -18,8 +18,6 @@ collections:
       - file: "src/pages/index.md"
         label: "Home Page"
         name: "index"
-        editor:
-          preview: false
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "hidden", default: "Home Page"}
@@ -29,8 +27,6 @@ collections:
     label: "Page"
     folder: "src/pages/other-pages"
     create: true
-    editor:
-      preview: false
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
       - {label: "Title", name: "title", widget: "string"}

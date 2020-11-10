@@ -4,23 +4,19 @@ import './index.css'
 import Brush from './Brush'
 
 const Section = ({children, isFirst, isLast}) => (
-    <div className={`section ${isFirst ? 'first' : ''}`}>
-    {!isFirst &&
-      <div className="brush-stroke before">
-        <Brush />
-        <Brush />
-        <Brush />
-      </div>
-    }
+  <div className={`section ${isFirst ? 'first' : ''} ${isLast ? 'last' : ''}`}>
+    <div className="brush-stroke before">
+      <Brush />
+      <Brush />
+      <Brush />
+    </div>
     <div className="content">
       {children}
     </div>
-    {!isLast &&
-      <div className="brush-stroke after">
-        <Brush />
-        <Brush />
-      </div>
-    }
+    <div className="brush-stroke after">
+      <Brush />
+      <Brush />
+    </div>
   </div>
 )
 

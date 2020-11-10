@@ -1,0 +1,43 @@
+.competition
+{
+  margin: 20px;
+}
+
+.toggle-winners
+{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.winner-picture
+{
+  height: 200px;
+}
+
+.trophy
+{
+  height: 50px;
+  cursor: pointer;
+}
+
+.first.trophy
+{
+  fill: #AF9500;
+}
+
+.second.trophy
+{
+  fill: #B4B4B4;
+}
+
+.third.trophy
+{
+  fill: #AD8A56;
+}
+
+.year
+{
+  cursor: pointer;
+  background-color: blue;
+  margin: 5px;
+}

@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet'
 import './index.css'
 import Footer from '../Footer'
 import Header from '../Header'
-import Section from '../Section'
 import useSiteMetadata from '../SiteMetadata'
 import { withPrefix } from 'gatsby'
 
@@ -58,15 +57,6 @@ const TemplateWrapper = ({ children }) => {
       <div id="app" scroll={scrollPos}>
         <Header />
         {children}
-        <Section isLast={true}>
-          {/* <Sponsors sponsors={sponsors} /> */}
-          <span className="contact-us">
-            Contact us at info@chiliwhenitschilly.com
-          </span>
-          <span id="website-by-jared">
-            Website by <a href="https://jared-weide-portfolio.web.app/" target="_blank" rel="noreferrer">Jared Weide</a>
-          </span>
-        </Section>
         <Footer />
       </div>
     </div>

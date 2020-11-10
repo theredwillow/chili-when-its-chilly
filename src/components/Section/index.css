@@ -3,17 +3,17 @@
   --burnout-height: 75px;
 }
 
-.section:nth-child(even)
+.section:nth-child(odd)
 {
   --section-color: var(--american-red);
 }
 
-.section:nth-child(odd)
+.section:nth-child(even)
 {
   --section-color: var(--american-white);
 }
 
-.section.first
+.first.section
 {
   --section-color: var(--american-blue);
 }
@@ -35,6 +35,23 @@
   display: flex;
 }
 
-.brush-stroke.after {
+.brush-stroke.after
+{
   transform: scaleY(-1);
+}
+
+.first.section .brush-stroke.before
+{
+  display: none;
+}
+
+.last.section .brush-stroke.after
+{
+  display: none;
+}
+
+h1
+{
+  font-family: 'Rock Salt', cursive;
+  /* font-size: 48px; */
 }

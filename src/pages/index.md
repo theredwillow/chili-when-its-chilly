@@ -5,24 +5,23 @@ sections:
   - >-
     # When?
 
-
     February 19th - 21st, 2021
-
 
     # Where?
 
-
     Lonestar Jellystone Campground, Waller, TX
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d11911.231343668538!2d-95.99234371561347!3d30.019153551711405!3m2!1i1024!2i768!4f13.1!3m2!1m1!2sLone%20Star%20Jellystone!5e1!3m2!1sen!2sus!4v1604419828194!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+
+    [Click here for Google Maps information and directions](https://www.google.com/maps/place/Lone+Star+Jellystone/@30.0194104,-95.9887512,17z/)
 
 
     [Click here for camping or lodging](https://lonestarjellystone.com/campsites/)
 
-
     # Why?
 
-
     To raise funds and awareness for Boot Campaign (Click here to learn more.)
-
 
     ...and because chili is good.
   - >-
@@ -86,4 +85,3 @@ sections:
     This event is ran by A Major Funding with help from help from Michael Wren, Alan Martin Jr, Kellie Outlaw, "Big Al" - Alan Martin Sr., and Zane Homesley
 description: The Chili When It's Chilly website!
 ---
-Hello there!

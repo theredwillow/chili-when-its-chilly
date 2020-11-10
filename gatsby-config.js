@@ -65,6 +65,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Rock Salt`
+          },
+          {
+            family: `Raleway`
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop

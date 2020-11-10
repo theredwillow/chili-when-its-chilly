@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Page from '../../templates/page'
+import { PageTemplate } from '../../templates/page'
 
-const PagePreview = ({ entry, widgetFor }) => (
-  <Page
-    content={widgetFor('body')}
-    title={entry.getIn(['data', 'title'])}
-  />
-)
+const PagePreview = ({ entry, widgetFor }) => {
+  return (
+    <PageTemplate
+      sections={entry.getIn(['data', 'sections'])}
+    />
+  )
+}
 
 PagePreview.propTypes = {
   entry: PropTypes.shape({
