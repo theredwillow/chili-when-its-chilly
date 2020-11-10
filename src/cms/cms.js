@@ -3,7 +3,6 @@ import uploadcare from 'netlify-cms-media-library-uploadcare'
 import cloudinary from 'netlify-cms-media-library-cloudinary'
 
 import PagePreview from './preview-templates/PagePreview'
-import SlideshowPreview from './preview-templates/SlideshowPreview'
 
 CMS.registerMediaLibrary(uploadcare)
 CMS.registerMediaLibrary(cloudinary)
@@ -77,4 +76,3 @@ CMS.registerMediaLibrary(cloudinary)
 
 CMS.registerPreviewTemplate('index', PagePreview)
 CMS.registerPreviewTemplate('page', PagePreview)
-CMS.registerPreviewTemplate('slideshow-image', SlideshowPreview)

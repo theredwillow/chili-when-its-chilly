@@ -11,10 +11,6 @@ import Section from '../components/Section'
 import Competition from '../components/Competition'
 import Slideshow from '../components/Slideshow'
 
-import twentynineteenhomebrewfirstmurrah from '../img/competition/2019-homebrew-1st-murrah.jpg'
-import twentynineteenhomebrewsecondshannon from '../img/competition/2019-homebrew-2nd-shannon.jpg'
-import twentynineteenhomebrewthirdmurrah from '../img/competition/2019-homebrew-3rd-murrah.jpg'
-
 const toHTML = value =>
   remark()
     .use(remarkHTML)
@@ -22,11 +18,12 @@ const toHTML = value =>
     .toString()
     .replace(/\\$/gm, '<br />')
 
-export const PageTemplate = ({ helmet, sections }) => {
+export const PageTemplate = ({ helmet, slideshowImages, sections }) => {
   const PostContent = HTMLContent || Content
   return (
     <div id="sections">
       {helmet || ''}
+      <Slideshow images={slideshowImages} />
       {
         sections.map((section, i) => (
           <Section
@@ -39,7 +36,6 @@ export const PageTemplate = ({ helmet, sections }) => {
       }
       <Section isLast={true}>
         {/* <Sponsors sponsors={sponsors} /> */}
-        <Slideshow images={[twentynineteenhomebrewfirstmurrah, twentynineteenhomebrewsecondshannon, twentynineteenhomebrewthirdmurrah]} />
         TEST OF COMPETITION { /* FIXME */ }
         <Competition name="Homebrew" />
         <span className="contact-us">
@@ -55,6 +51,7 @@ export const PageTemplate = ({ helmet, sections }) => {
 
 PageTemplate.propTypes = {
   helmet: PropTypes.object,
+  slideshowImages: PropTypes.array,
   sections: PropTypes.array
 }
 
@@ -78,6 +75,7 @@ const Page = ({ data }) => {
             />
           </Helmet>
         }
+        slideshowImages={post.frontmatter.slideshowImages}
         sections={post.frontmatter.sections}
       />
     </Layout>
@@ -100,6 +98,16 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
+        slideshowImages {
+          src {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
+          description
+        }
         sections
       }
     }

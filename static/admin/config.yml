@@ -22,6 +22,15 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "hidden", default: "Home Page"}
           - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
+          - name: "slideshowImages"
+            label: "Slideshow Image" 
+            widget: "list"
+            optional: true
+            summary: '{{fields.description}}'
+            hint: "Optional. Choose images to add a slideshow at the top of the page."
+            fields:
+              - {label: "Image", name: "src", widget: "image"}
+              - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
           - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
   - name: "page"
     label: "Page"

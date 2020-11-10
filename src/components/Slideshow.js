@@ -3,21 +3,33 @@ import PropTypes from 'prop-types'
 import Carousel from 'nuka-carousel'
 
 const Slideshow = ({images}) => {
-  if (!images || !images.length) {
-    return (
-      <div>
-        (A slideshow will appear here when images are added.)
-      </div>
-    )
+  if (images) {
+    if (images.toJS) {
+      images = images.toJS()
+    }
+    images = images.filter(image => image.src)
   }
 
-  images = images.map((image, i) => (
-    <img
-      key={`image-${i}`}
-      src={image}
-      alt={image}
-    />
-  ))
+  if (!images || !images.length) {
+    return (<></>)
+  }
+
+  images = images.map((image, i) => {
+    if (image.src && image.src.childImageSharp) {
+      image.src = image.src.childImageSharp.fluid.src
+    }
+    return (
+      <img
+        key={`image-${i}`}
+        src={image.src}
+        alt={image.description || `Image number ${i} in a slideshow`}
+      />
+    )
+  })
+
+  if (images.length === 1) {
+    return images[0]
+  }
 
   return (
     <Carousel>
@@ -28,7 +40,10 @@ const Slideshow = ({images}) => {
 
 Slideshow.propTypes = {
   images: PropTypes.arrayOf(
-    PropTypes.string
+    PropTypes.shape({
+      src: PropTypes.string,
+      description: PropTypes.string
+    })
   ),
 }
 

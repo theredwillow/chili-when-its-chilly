@@ -1,6 +1,12 @@
 ---
 templateKey: page
 title: Home Page
+description: The Chili When It's Chilly website!
+slideshowImages:
+  - src: /img/michael.jpeg
+    description: Michael plays a concert at a Chili when it's Chili weekend.
+  - src: /img/blog-index.jpg
+    description: Pointless image of coffee
 sections:
   - >-
     # When?
@@ -83,5 +89,3 @@ sections:
     **Who hosts this?**\
 
     This event is ran by A Major Funding with help from help from Michael Wren, Alan Martin Jr, Kellie Outlaw, "Big Al" - Alan Martin Sr., and Zane Homesley
-description: The Chili When It's Chilly website!
----
