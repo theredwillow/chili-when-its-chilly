@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import { HTMLContent } from '../components/Content'
 import Section from '../components/Section'
 
 import Competition from '../components/Competition'
@@ -18,34 +18,41 @@ const toHTML = value =>
     .toString()
     .replace(/\\$/gm, '<br />')
 
-export const PageTemplate = ({ helmet, slideshowImages, sections }) => {
-  const PostContent = HTMLContent || Content
+export const PageTemplate = ({
+  helmet,
+  slideshowImages,
+  sections
+}) => {
   return (
-    <div id="sections">
+    <>
       {helmet || ''}
       <Slideshow images={slideshowImages} />
-      {
-        sections.map((section, i) => (
-          <Section
-            key={`section-${i}`}
-            isFirst={i === 0}
-          >
-            <PostContent content={toHTML(section)} />
-          </Section>
-        ))
-      }
-      <Section isLast={true}>
-        {/* <Sponsors sponsors={sponsors} /> */}
-        TEST OF COMPETITION { /* FIXME */ }
-        <Competition name="Homebrew" />
-        <span className="contact-us">
-          Contact us at info@chiliwhenitschilly.com
-        </span>
-        <span id="website-by-jared">
-          Website by <a href="https://jared-weide-portfolio.web.app/" target="_blank" rel="noreferrer">Jared Weide</a>
-        </span>
-      </Section>
-    </div>
+      <div id="sections">
+        {
+          sections.map((section, i) => (
+            <Section
+              key={`section-${i}`}
+              isFirst={i === 0}
+            >
+              <HTMLContent className="content" content={toHTML(section)} />
+            </Section>
+          ))
+        }
+        <Section isLast={true}>
+          <div className="content">
+            {/* <Sponsors sponsors={sponsors} /> */}
+            TEST OF COMPETITION { /* FIXME */ }
+            <Competition name="Homebrew" />
+            <span className="contact-us">
+              Contact us at info@chiliwhenitschilly.com
+            </span>
+            <span id="website-by-jared">
+              Website by <a href="https://jared-weide-portfolio.web.app/" target="_blank" rel="noreferrer">Jared Weide</a>
+            </span>
+          </div>
+        </Section>
+      </div>
+    </>
   )
 }
 
@@ -83,9 +90,7 @@ const Page = ({ data }) => {
 }
 
 Page.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
+  data: PropTypes.object.isRequired,
 }
 
 export default Page

@@ -10,9 +10,7 @@ const Section = ({children, isFirst, isLast}) => (
       <Brush />
       <Brush />
     </div>
-    <div className="content">
-      {children}
-    </div>
+    {children}
     <div className="brush-stroke after">
       <Brush />
       <Brush />
