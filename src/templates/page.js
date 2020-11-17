@@ -8,7 +8,6 @@ import Layout from '../components/Layout'
 import { HTMLContent } from '../components/Content'
 import Section from '../components/Section'
 
-import Competition from '../components/Competition'
 import Slideshow from '../components/Slideshow'
 
 const toHTML = value =>
@@ -41,8 +40,6 @@ export const PageTemplate = ({
         <Section isLast={true}>
           <div className="content">
             {/* <Sponsors sponsors={sponsors} /> */}
-            TEST OF COMPETITION { /* FIXME */ }
-            <Competition name="Homebrew" />
             <span className="contact-us">
               Contact us at info@chiliwhenitschilly.com
             </span>
@@ -107,7 +104,7 @@ export const pageQuery = graphql`
           src {
             childImageSharp {
               fluid {
-                src
+                ...GatsbyImageSharpFluid
               }
             }
           }

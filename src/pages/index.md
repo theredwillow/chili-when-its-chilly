@@ -3,7 +3,7 @@ templateKey: page
 title: Home Page
 description: The Chili When It's Chilly website!
 slideshowImages:
-  - src: /img/michael.jpeg
+  - src: /img/musicians/michael.jpg
     description: Michael plays a concert at a Chili when it's Chili weekend.
   - src: /img/blog-index.jpg
     description: Pointless image of coffee

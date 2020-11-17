@@ -1,63 +1,12 @@
 import React, { useState }  from 'react'
 import PropTypes from 'prop-types'
+import Img from 'gatsby-image'
 import Trophy from './Trophy'
 import './index.css'
 
-// FIXME
-import homebrew from '../../img/competition/homebrew.jpg'
-import twentynineteenhomebrewfirstmurrah from '../../img/competition/2019-homebrew-1st-murrah.jpg'
-import twentynineteenhomebrewsecondshannon from '../../img/competition/2019-homebrew-2nd-shannon.jpg'
-import twentynineteenhomebrewthirdmurrah from '../../img/competition/2019-homebrew-3rd-murrah.jpg'
-
-const WinnerBrowser = ({contestName}) => {
-  const [winnerOpen, setWinnerOpen] = useState({})
-  const [placeOpen, setPlaceOpen] = useState('first')
+const WinnerBrowser = ({contestName, prevYears}) => {
+  const [placeOpen, setPlaceOpen] = useState('firstPlace')
   const [yearOpen, setYearOpen] = useState(0)
-  const [sponsorOpen, setSponsorOpen] = useState({})
-
-  // FIXME Get info from data
-  const prevYears = {
-    2019: {
-      winners: {
-        first: {
-          name: 'Murrah',
-          image: twentynineteenhomebrewfirstmurrah
-        },
-        second: {
-          name: 'Shannon Kornegay',
-          image: twentynineteenhomebrewsecondshannon
-        },
-        third: {
-          name: 'Murrah',
-          image: twentynineteenhomebrewthirdmurrah
-        }
-      },
-      sponsor: {
-        name: 'Brenham Homebrewer Supply',
-        link: 'https://www.example.com/'
-      }
-    },
-    2017: {
-      winners: {
-        first: {
-          name: 'Murrah',
-          image: twentynineteenhomebrewfirstmurrah
-        },
-        second: {
-          name: 'Shannon Kornegay',
-          image: twentynineteenhomebrewsecondshannon
-        },
-        third: {
-          name: 'Murrah',
-          image: twentynineteenhomebrewthirdmurrah
-        }
-      },
-      sponsor: {
-        name: 'Brenham Homebrewer',
-        link: 'https://www.example.com/'
-      }
-    }
-  }
 
   if (!prevYears) {
     return (
@@ -77,37 +26,45 @@ const WinnerBrowser = ({contestName}) => {
     )
   }
 
-  const latestYear = Math.max(...allYears)
+  const getWinnerOpen = () => prevYears[yearOpen].winners[placeOpen]
+  const getSponsorOpen = () => prevYears[yearOpen].sponsor
+  const getWinnersCopy = (isAlt) => {
+    const winnersName = getWinnerOpen().winnersName
+    const sponsorOpen = getSponsorOpen()
+    let winnersCopy = (winnersName)
+      ? `${winnersName}, holding their ${placeOpen.replace('Place', ' place')} trophy`
+      : `The ${placeOpen.replace('Place', ' place')} winner of the ${contestName}, holding their trophy`
+    winnersCopy += ` for winning the ${contestName}`
+    if (sponsorOpen && sponsorOpen.name) {
+      winnersCopy += (isAlt && sponsorOpen.sponsorUrl)
+        ? `, which was sponsored by ${sponsorOpen.name}`
+        : `, which was sponsored by <a href="${sponsorOpen.sponsorUrl}" target="_blank" rel="noreferrer">${sponsorOpen.name}</a>`
+    }
+    winnersCopy += ` in ${yearOpen}`
+    return winnersCopy
+  }
+
   if (!yearOpen) {
-    setWinnerOpen(prevYears[latestYear].winners.first)
+    const latestYear = String(Math.max(...allYears))
     setYearOpen(latestYear)
-    setSponsorOpen(prevYears[latestYear].sponsor)
+    return <></>
   }
 
-  const changeYearOpen = (year) => {
-    setWinnerOpen(prevYears[year].winners[placeOpen])
-    setYearOpen(year)
-    setSponsorOpen(prevYears[year].sponsor)
-  }
-  const changePlaceOpen = (place) => {
-    setWinnerOpen(prevYears[yearOpen].winners[place])
-    setPlaceOpen(place)
-  }
-
+  // FIXME https://www.gatsbyjs.com/docs/working-with-images-in-markdown/
   return (
     <div className='winner-browser'>
-      <img
+      <Img
         className='winner-picture'
-        src={winnerOpen.image}
-        alt={`${winnerOpen.name} holding their ${placeOpen} place trophy for winning the ${contestName}, sponsored by ${sponsorOpen.name}`}
+        fixed={getWinnerOpen().winnersPicture.childImageSharp.fixed}
+        alt={getWinnersCopy(true)}
       />
       <div className='trophies'>
         { ['first', 'second', 'third'].map(place => (
           <Trophy
-            className={`${place} trophy ${placeOpen === place ? 'open': ''}`}
+            className={`${place} trophy ${placeOpen === `${place}Place` ? 'open': ''}`}
             title={`${place.charAt(0).toUpperCase() + place.slice(1)} Place`}
             key={`${place} place`}
-            onClick={() => changePlaceOpen(place)}
+            onClick={() => setPlaceOpen(`${place}Place`)}
           />
         )) }
       </div>
@@ -117,32 +74,32 @@ const WinnerBrowser = ({contestName}) => {
           <span
             key={`${year} year`}
             className={`year ${year === yearOpen ? 'open' : ''}`}
-            onClick={() => changeYearOpen(year)}
+            onClick={() => setYearOpen(year)}
           >
             {year}
           </span>
         )) }
       </div>
       }
-      <div className='winner-info'>
-        {winnerOpen.name} was the {placeOpen} place winner of the {contestName} of {yearOpen},
-        sponsored by <a href={sponsorOpen.link} target="_blank" rel="noreferrer">{sponsorOpen.name}</a>
-      </div>
+      <div className='winner-info' dangerouslySetInnerHTML={{ __html: getWinnersCopy() }} />
     </div>
   )
 }
 
-const Competition = ({name: contestName}) => {
+const Competition = ({info}) => {
   const [isOpen, setOpen] = useState(false)
 
-  // FIXME Get image from data
-  const contestImage = homebrew
+  const prevYears = info.years.filter(y => y.winners)
 
+  // FIXME 0 appearing near hot dog
   return (
     <div className={`competition`}>
-      <img src={contestImage} alt={contestName} />
+      <Img
+        fixed={info.image.childImageSharp.fixed}
+        alt={info.contestName}
+      />
       {
-        !isOpen &&
+        (!isOpen && prevYears && prevYears.length) &&
           <div
             onClick={() => setOpen(true)}
             className='see-prev toggle-winners'
@@ -159,7 +116,10 @@ const Competition = ({name: contestName}) => {
             >
               (Close Previous Winners Display)
             </div>
-            <WinnerBrowser contestName={contestName} />
+            <WinnerBrowser
+              contestName={info.contestName}
+              prevYears={prevYears.reduce((o, key) => ({ ...o, [key.year]: key}), {})}
+            />
           </div>
       }
     </div>
@@ -167,7 +127,7 @@ const Competition = ({name: contestName}) => {
 }
 
 Competition.propTypes = {
-  name: PropTypes.string
+  info: PropTypes.object.isRequired
 }
 
 export default Competition

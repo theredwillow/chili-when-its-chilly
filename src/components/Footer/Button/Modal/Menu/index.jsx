@@ -4,34 +4,6 @@ import './index.css'
 import LinkIcon from './LinkIcon'
 import { graphql, useStaticQuery } from 'gatsby'
 
-// FIXME Retrieve from CMS
-// const options = [
-//   {
-//     title: 'Home Page',
-//     link: '/'
-//   },
-//   {
-//     title: 'Shop / Tickets',
-//     link: '/shop'
-//   },
-//   {
-//     title: `Cook Off's`,
-//     link: '/cook-offs'
-//   },
-//   {
-//     title: 'Live Music',
-//     link: '/music'
-//   },
-//   {
-//     title: 'Videos',
-//     link: '/videos'
-//   },
-//   {
-//     title: 'Lodging',
-//     url: 'https://lonestarjellystone.com/lodging/'
-//   }
-// ]
-
 function Menu(){
 
   const { allMarkdownRemark } = useStaticQuery(

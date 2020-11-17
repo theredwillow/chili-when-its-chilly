@@ -1,31 +1,21 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
+
 import Carousel from 'nuka-carousel'
 
 const Slideshow = ({images}) => {
-  if (images) {
-    if (images.toJS) {
-      images = images.toJS()
-    }
-    images = images.filter(image => image.src)
-  }
-
-  if (!images || !images.length) {
+  if (!images || !images.size) {
     return (<></>)
   }
 
-  images = images.map((image, i) => {
-    if (image.src && image.src.childImageSharp) {
-      image.src = image.src.childImageSharp.fluid.src
-    }
-    return (
-      <img
-        key={`image-${i}`}
-        src={image.src}
-        alt={image.description || `Image number ${i} in a slideshow`}
-      />
-    )
-  })
+  images = images.map((image, i) => (
+    <Img
+      key={`image-${i}`}
+      fluid={image.childImageSharp.fluid}
+      alt={image.description || `Image number ${i} in a slideshow`}
+    />
+  ))
 
   if (images.length === 1) {
     return images[0]
@@ -39,12 +29,7 @@ const Slideshow = ({images}) => {
 }
 
 Slideshow.propTypes = {
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      src: PropTypes.string,
-      description: PropTypes.string
-    })
-  ),
+  images: PropTypes.object // FIXME Figure out propType of gatsby-image-fluid
 }
 
 export default Slideshow

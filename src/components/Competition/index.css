@@ -9,6 +9,11 @@
   text-decoration: underline;
 }
 
+.winner-browser
+{
+  margin: 5px;
+}
+
 .winner-picture
 {
   height: 200px;
@@ -18,6 +23,7 @@
 {
   height: 50px;
   cursor: pointer;
+  padding-bottom: 7px;
 }
 
 .first.trophy
@@ -35,9 +41,24 @@
   fill: #AD8A56;
 }
 
+.trophy.open
+{
+  padding-bottom: 2px;
+}
+
 .year
 {
   cursor: pointer;
   background-color: blue;
-  margin: 5px;
+  margin: 8px;
+}
+
+.open
+{
+  border-bottom: 5px solid gray;
+}
+
+.winner-info
+{
+  margin: 7.5px;
 }

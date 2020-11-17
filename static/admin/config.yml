@@ -32,6 +32,72 @@ collections:
               - {label: "Image", name: "src", widget: "image"}
               - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
           - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
+      - file: "src/pages/cook-offs.md"
+        label: "Cook Off's"
+        name: "cook-offs"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "hidden", default: "Cook Off's"}
+          - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
+          - name: "competitions"
+            label: "Competitions"
+            widget: "list"
+            optional: true
+            summary: '{{fields.contestName}}'
+            fields:
+              - {label: "Contest Name", name: "contestName", widget: "string", hint: "Avoid using the definite article (i.e. 'The'). This is taken care of by the code when necessary."}
+              - {label: "Image", name: "image", widget: "image", hint: "The logo/image for this year's competition."}
+              - name: "Day"
+                label: "day"
+                widget: "select"
+                summary: "Day the event will be held on."
+                multiple: false
+                options: ["Friday", "Saturday", "Sunday"]
+              - name: "years"
+                label: "Years"
+                widget: "list"
+                summary: "{{fields.year}}"
+                hint: "Provide sponsor and day information. Or for previous years, provide images and names for the previous years' winners' gallery."
+                fields:
+                  - {label: "Year", name: "year", widget: "string"}
+                  - name: "Sponsor"
+                    label: "sponsor"
+                    widget: "object"
+                    optional: true
+                    summary: "Sponsored by {{fields.sponsorName}}"
+                    fields:
+                      - {label: "Name", name: "sponsorName", widget: "string"}
+                      - {label: "URL", name: "sponsorUrl", widget: "string", hint: "Provide the URL to the sponsor's website."}
+                  - name: "Winners"
+                    label: "winners"
+                    widget: "object"
+                    optional: true
+                    fields:
+                      - name: "First Place"
+                        label: "firstPlace"
+                        widget: "object"
+                        summary: "1st: {{fields.winnersName}}"
+                        optional: true
+                        fields:
+                          - {label: "Winner's Name", name: "winnersName", widget: "string", optional: true}
+                          - {label: "Winner's Picture", name: "winnersPicture", widget: "image", hint: "Picture of 1st place winner, preferably holding trophy or entry."}
+                      - name: "Second Place"
+                        label: "secondPlace"
+                        widget: "object"
+                        summary: "2nd: {{fields.winnersName}}"
+                        optional: true
+                        fields:
+                          - {label: "Winner's Name", name: "winnersName", widget: "string", optional: true}
+                          - {label: "Winner's Picture", name: "winnersPicture", widget: "image", hint: "Picture of 2nd place winner, preferably holding trophy or entry."}
+                      - name: "Third Place"
+                        label: "thirdPlace"
+                        widget: "object"
+                        summary: "3rd: {{fields.winnersName}}"
+                        optional: true
+                        fields:
+                          - {label: "Winner's Name", name: "winnersName", widget: "string", optional: true}
+                          - {label: "Winner's Picture", name: "winnersPicture", widget: "image", hint: "Picture of 3rd place winner, preferably holding trophy or entry."}
+          - {label: "Rules", name: "rules", widget: "markdown"}
   - name: "page"
     label: "Page"
     folder: "src/pages/other-pages"
