@@ -3,10 +3,12 @@ templateKey: page
 title: Home Page
 description: The Chili When It's Chilly website!
 slideshowImages:
-  - src: /img/musicians/michael.jpg
-    description: Michael plays a concert at a Chili when it's Chili weekend.
-  - src: /img/blog-index.jpg
-    description: Pointless image of coffee
+  - src: /img/slideshow1.jpg
+    description: A fun concert at a Chili when it's Chilly weekend.
+  - src: /img/slideshow2.jpg
+    description: Audience applauding a concert at a Chili when it's Chilly weekend.
+  - src: /img/slideshow3.jpg
+    description: The Texas flag hung decoratively on the back of a golf cart used to visit the Chili when it's Chilly cook-off's.
 sections:
   - >-
     # When?
