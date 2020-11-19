@@ -1,7 +1,7 @@
 ---
 templateKey: cook-offs
 title: Cook Off's
-description: >-
+description: >
   Check out the cookoff competitions that will be at this year's Chili When It's Chilly weekend! Or look at previous winners' image galleries.
 competitions:
   - contestName: Steak Competition
@@ -181,8 +181,6 @@ competitions:
             winnersPicture: /img/winners/2017/2017-jalapeno-1st.jpg
           secondPlace:
             winnersPicture: /img/winners/2017/2017-jalapeno-2nd.jpg
-          thirdPlace:
-            winnersPicture: /img/winners/2017/2017-jalapeno-3rd.jpg
   - contestName: Mixed Drink Contest
     image: /img/competition/drink.jpg
     day: Sunday
@@ -259,7 +257,7 @@ competitions:
             winnersPicture: /img/winners/2017/2017-burger-2nd.jpg
           thirdPlace:
             winnersPicture: /img/winners/2017/2017-burger-3rd.jpg
-rules: >-
+rules: >
   These are the rules... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ---
 This is the cook-off's page

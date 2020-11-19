@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { PageTemplate } from '../../templates/page'
+import { PageTemplate } from '../../templates/pages'
 
 const PagePreview = ({ entry }) => (
   <>

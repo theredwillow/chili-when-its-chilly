@@ -9,6 +9,7 @@ import { HTMLContent } from '../components/Content'
 import Section from '../components/Section'
 
 import Slideshow from '../components/Slideshow'
+import Sponsors from '../components/Sponsors'
 
 const toHTML = value =>
   remark()
@@ -39,7 +40,7 @@ export const PageTemplate = ({
         }
         <Section isLast={true}>
           <div className="content">
-            {/* <Sponsors sponsors={sponsors} /> */}
+            <Sponsors images={[1, 2, 3]} />
             <span className="contact-us">
               Contact us at info@chiliwhenitschilly.com
             </span>

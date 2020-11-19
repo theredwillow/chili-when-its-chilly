@@ -1,5 +1,5 @@
 ---
-templateKey: page
+templateKey: pages
 title: Home Page
 description: The Chili When It's Chilly website!
 slideshowImages:

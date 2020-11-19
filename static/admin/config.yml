@@ -33,11 +33,11 @@ collections:
               - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
           - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
       - file: "src/pages/cook-offs.md"
-        label: "Cook Off's"
+        label: "Cook Off's from config"
         name: "cook-offs"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
-          - {label: "Title", name: "title", widget: "hidden", default: "Cook Off's"}
+          - {label: "Title", name: "title", widget: "hidden", default: "Cook Off's from title"}
           - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
           - name: "competitions"
             label: "Competitions"
@@ -45,21 +45,32 @@ collections:
             optional: true
             summary: '{{fields.contestName}}'
             fields:
-              - {label: "Contest Name", name: "contestName", widget: "string", hint: "Avoid using the definite article (i.e. 'The'). This is taken care of by the code when necessary."}
-              - {label: "Image", name: "image", widget: "image", hint: "The logo/image for this year's competition."}
+              - label: "Contest Name"
+                name: "contestName"
+                widget: "string"
+                hint: "Avoid using the definite article (i.e. 'The'). This is taken care of by the code when necessary."
+              - label: "Image"
+                name: "image"
+                widget: "image"
+                hint: "The logo/image for this year's competition."
+                media_folder: static/img/competitions
+                public_folder: /img/competitions
               - name: "Day"
                 label: "day"
                 widget: "select"
-                summary: "Day the event will be held on."
+                hint: "Day the event will be held on."
                 multiple: false
                 options: ["Friday", "Saturday", "Sunday"]
               - name: "years"
                 label: "Years"
                 widget: "list"
                 summary: "{{fields.year}}"
-                hint: "Provide sponsor and day information. Or for previous years, provide images and names for the previous years' winners' gallery."
+                hint: "Provide sponsor information for upcoming event. Or for previous years, provide images and names for the winners' gallery."
                 fields:
-                  - {label: "Year", name: "year", widget: "string"}
+                  - label: "Year"
+                    name: "year"
+                    widget: "string"
+                    pattern: ['^\d{4}$', "Must be a four-digit year (i.e. 2000)."]
                   - name: "Sponsor"
                     label: "sponsor"
                     widget: "object"
@@ -98,12 +109,12 @@ collections:
                           - {label: "Winner's Name", name: "winnersName", widget: "string", optional: true}
                           - {label: "Winner's Picture", name: "winnersPicture", widget: "image", hint: "Picture of 3rd place winner, preferably holding trophy or entry."}
           - {label: "Rules", name: "rules", widget: "markdown"}
-  - name: "page"
-    label: "Page"
+  - name: "pages"
+    label: "Pages from config"
     folder: "src/pages/other-pages"
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "pages"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
       - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}

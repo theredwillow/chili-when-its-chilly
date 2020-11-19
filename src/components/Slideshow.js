@@ -9,22 +9,20 @@ const Slideshow = ({images}) => {
     return (<></>)
   }
 
-  images = images.map((image, i) => {
-    debugger
-    return (
+  images = images.map((image, i) => (
     <Img
       key={`image-${i}`}
       fluid={image.src.childImageSharp.fluid}
       alt={image.description || `Image number ${i} in a slideshow`}
     />
-  )})
+  ))
 
   if (images.length === 1) {
     return images[0]
   }
 
   return (
-    <Carousel>
+    <Carousel autoplay={true} transitionMode="fade">
       {images}
     </Carousel>
   )

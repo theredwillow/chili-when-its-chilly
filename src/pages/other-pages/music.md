@@ -1,5 +1,5 @@
 ---
-templateKey: page
+templateKey: pages
 title: Music
 description: Check out who will be playing at this year's Chili When It's Chilly weekend!
 sections:
@@ -61,7 +61,7 @@ sections:
     Michael O'Neal Band
 
 
-    ![Michael O'Neal Band](/img/musicians/michael.jpeg "Michael O'Neal Band")
+    ![Michael O'Neal Band](/img/musicians/michael.jpg "Michael O'Neal Band")
   - |-
     # Are you a musician?
 

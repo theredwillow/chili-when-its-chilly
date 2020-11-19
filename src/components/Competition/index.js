@@ -29,8 +29,12 @@ const WinnerBrowser = ({contestName, prevYears}) => {
   const getWinnerOpen = () => prevYears[yearOpen].winners[placeOpen]
   const getSponsorOpen = () => prevYears[yearOpen].sponsor
   const getWinnersCopy = (isAlt) => {
-    const winnersName = getWinnerOpen().winnersName
+    const winnerOpen = getWinnerOpen()
+    if (!winnerOpen) { return "&nbsp;" }
+
+    const winnersName = winnerOpen.winnersName
     const sponsorOpen = getSponsorOpen()
+
     let winnersCopy = (winnersName)
       ? `${winnersName}, holding their ${placeOpen.replace('Place', ' place')} trophy`
       : `The ${placeOpen.replace('Place', ' place')} winner of the ${contestName}, holding their trophy`
@@ -50,14 +54,39 @@ const WinnerBrowser = ({contestName, prevYears}) => {
     return <></>
   }
 
+  const getWinnersPicture = () => {
+    const openWinner = getWinnerOpen()
+
+    if (!openWinner) {
+      return (
+        <div className="winner-picture">
+          Oops! Looks like we don't have any information about the {placeOpen.replace('Place', ' place')} winner of the {contestName} from {yearOpen}.
+        </div>
+      )
+    }
+
+    if (!openWinner.winnersPicture) {
+      return (
+        <div className="winner-picture">
+          Oops! Looks like we don't have any pictures of the {placeOpen.replace('Place', ' place')} winner of the {contestName} from {yearOpen}.
+        </div>
+      )
+    }
+
+    return (
+      <Img
+        className='winner-picture'
+        fixed={openWinner.winnersPicture.childImageSharp.fixed}
+        alt={getWinnersCopy(true)}
+      />
+    )
+  }
+
   // FIXME https://www.gatsbyjs.com/docs/working-with-images-in-markdown/
   return (
     <div className='winner-browser'>
-      <Img
-        className='winner-picture'
-        fixed={getWinnerOpen().winnersPicture.childImageSharp.fixed}
-        alt={getWinnersCopy(true)}
-      />
+      { getWinnersPicture() }
+
       <div className='trophies'>
         { ['first', 'second', 'third'].map(place => (
           <Trophy
@@ -65,22 +94,30 @@ const WinnerBrowser = ({contestName, prevYears}) => {
             title={`${place.charAt(0).toUpperCase() + place.slice(1)} Place`}
             key={`${place} place`}
             onClick={() => setPlaceOpen(`${place}Place`)}
+            onKeyDown={() => setPlaceOpen(`${place}Place`)}
+            role="button"
+            tabIndex={0}
           />
         )) }
       </div>
+
       { allYears.length > 1 &&
       <div className='years'>
         { allYears.map(year => (
           <span
             key={`${year} year`}
             className={`year ${year === yearOpen ? 'open' : ''}`}
+            role="button"
+            tabIndex={0}
             onClick={() => setYearOpen(year)}
+            onKeyDown={() => setYearOpen(year)}
           >
             {year}
           </span>
         )) }
       </div>
       }
+
       <div className='winner-info' dangerouslySetInnerHTML={{ __html: getWinnersCopy() }} />
     </div>
   )
@@ -89,7 +126,18 @@ const WinnerBrowser = ({contestName, prevYears}) => {
 const Competition = ({info}) => {
   const [isOpen, setOpen] = useState(false)
 
-  const prevYears = info.years.filter(y => y.winners)
+  let prevYears = []
+  if (info && info.years && info.years.length) {
+    prevYears = info.years.filter(y => y.winners)
+  }
+
+  if (!info || !info.image) {
+    return (
+      <div>
+        Sorry, there was an error while displaying this competition's image.
+      </div>
+    )
+  }
 
   // FIXME 0 appearing near hot dog
   return (
@@ -99,9 +147,12 @@ const Competition = ({info}) => {
         alt={info.contestName}
       />
       {
-        (!isOpen && prevYears && prevYears.length) &&
+        (!isOpen && prevYears.length) &&
           <div
             onClick={() => setOpen(true)}
+            onKeyDown={() => setOpen(true)}
+            role="button"
+            tabIndex={0}
             className='see-prev toggle-winners'
           >
             See Previous Winners
@@ -112,6 +163,9 @@ const Competition = ({info}) => {
           <div>
             <div
               onClick={() => setOpen(false)}
+              onKeyDown={() => setOpen(false)}
+              role="button"
+              tabIndex={0}
               className='toggle-winners'
             >
               (Close Previous Winners Display)

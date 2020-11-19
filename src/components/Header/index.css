@@ -12,6 +12,7 @@
   /* fill: var(--military-blank); */
   --animation-duration: 2000ms;
   transition: height var(--animation-duration);
+  position: sticky;
 }
 
 #app[scroll='0'] #header
