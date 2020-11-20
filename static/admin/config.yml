@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  repo: theredwillow/chili-when-its-chilly
   branch: master
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'

@@ -11,7 +11,11 @@ const Sponsors = ({images}) => {
   }
 
   images = images.map((image, i) => (
-    <img src="http://placekitten.com/g/400/200" alt="Place holder kitten" />
+    <img
+      key={`sponsors-${i}`}
+      src="https://placekitten.com/g/400/200"
+      alt="Place holder kitten"
+    />
     // <Img
     //   key={`image-${i}`}
     //   fluid={image.src.childImageSharp.fluid}

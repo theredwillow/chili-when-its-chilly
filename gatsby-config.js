@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Chili When It's Chili",
+    title: "Chili When It's Chilly",
     description: "Chili When It's Chilly is an annual cook-out in Waller, TX. CWIC is a weekend full of cooking contests, musical guests, and fun for the whole family.",
   },
   plugins: [
