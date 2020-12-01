@@ -33,6 +33,14 @@ collections:
               - {label: "Image", name: "src", widget: "image"}
               - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
           - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
+          - name: "externalLinks"
+            label: "External Links"
+            widget: "list"
+            summary: '{{fields.name}}'
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string", hint: "Please use https, not http whenever possible."}
+              - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that users will know what to expect when they click the link."}
       - file: "src/pages/cook-offs.md"
         label: "Cook Off's from config"
         name: "cook-offs"
@@ -45,6 +53,7 @@ collections:
             widget: "list"
             optional: true
             summary: '{{fields.contestName}}'
+            # FIXME media_folder and public_folder settings
             fields:
               - label: "Contest Name"
                 name: "contestName"
@@ -54,8 +63,6 @@ collections:
                 name: "image"
                 widget: "image"
                 hint: "The logo/image for this year's competition."
-                media_folder: static/img/competitions
-                public_folder: /img/competitions
               - name: "Day"
                 label: "day"
                 widget: "select"

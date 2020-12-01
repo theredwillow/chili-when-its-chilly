@@ -8,21 +8,21 @@ function Menu(){
 
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
-    query AllPages {
-      allMarkdownRemark {
-        edges {
-          node {
-            frontmatter {
-              title
-              description
-            }
-            fields {
-              slug
+      query AllPages {
+        allMarkdownRemark {
+          edges {
+            node {
+              frontmatter {
+                title
+                description
+              }
+              fields {
+                slug
+              }
             }
           }
         }
       }
-    }
     `
   )
 

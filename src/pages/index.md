@@ -25,7 +25,7 @@ sections:
     [Click here for Google Maps information and directions](https://www.google.com/maps/place/Lone+Star+Jellystone/@30.0194104,-95.9887512,17z/)
 
 
-    [Click here for camping or lodging](https://lonestarjellystone.com/campsites/)
+    [Click here for camping or lodging](https://lonestarjellystone.com/)
 
     # Why?
 
@@ -91,3 +91,8 @@ sections:
     **Who hosts this?**\
 
     This event is ran by A Major Funding with help from help from Michael Wren, Alan Martin Jr, Kellie Outlaw, "Big Al" - Alan Martin Sr., and Zane Homesley
+externalLinks:
+  - name: Lodging
+    url: https://wallerjellystonepark.com/
+    description: >
+      Camp or lodge in a cabin at Yogi Bear's Jellystone Park Camp and Resort located on the event grounds here in Waller, TX!
