@@ -93,7 +93,7 @@ sections:
 
     This event is ran by A Major Funding with help from help from Michael Wren, Alan Martin Jr, Kellie Outlaw, "Big Al" - Alan Martin Sr., and Zane Homesley
 externalLinks:
-  - name: Lodging
+  - title: Lodging
     url: https://wallerjellystonepark.com/
     description: Camp or lodge in a cabin at Yogi Bear's Jellystone Park Camp and
       Resort located on the event grounds here in Waller, TX!

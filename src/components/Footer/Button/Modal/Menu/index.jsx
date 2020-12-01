@@ -15,6 +15,11 @@ function Menu(){
               frontmatter {
                 title
                 description
+                externalLinks {
+                  description
+                  title
+                  url
+                }
               }
               fields {
                 slug
@@ -33,7 +38,10 @@ function Menu(){
       link: edge.node.fields.slug
     }
   ))
-  const options = [ ...internalLinks ]
+  const externalLinks = allMarkdownRemark.edges
+    .find(edge => edge.node.frontmatter.externalLinks)
+    .node.frontmatter.externalLinks
+  const options = [ ...internalLinks, ...externalLinks ]
 
   const goTo = (option) => {
     if (option.link) {
