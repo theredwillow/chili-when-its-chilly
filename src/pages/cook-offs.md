@@ -5,7 +5,7 @@ description: >
   Check out the cookoff competitions that will be at this year's Chili When It's Chilly weekend! Or look at previous winners' image galleries.
 competitions:
   - contestName: Steak Competition
-    image: /img/competition/steak.jpg
+    image: /img/competitions/steak.jpg
     day: Friday
     years:
       - year: 2021
@@ -43,7 +43,7 @@ competitions:
           thirdPlace:
             winnersPicture: /img/winners/2017/2017-steak-3rd.jpg
   - contestName: Dessert Contest
-    image: /img/competition/dessert.jpg
+    image: /img/competitions/dessert.jpg
     day: Friday
     years:
       - year: 2021
@@ -81,7 +81,7 @@ competitions:
           thirdPlace:
             winnersPicture: /img/winners/2017/2017-dessert-3rd.jpg
   - contestName: Chili Contest
-    image: /img/competition/chili.jpg
+    image: /img/competitions/chili.jpg
     day: Saturday
     years:
       - year: 2021
@@ -119,7 +119,7 @@ competitions:
           thirdPlace:
             winnersPicture: /img/winners/2017/2017-chili-3rd.jpg
   - contestName: Homebrew Competition
-    image: /img/competition/homebrew.jpg
+    image: /img/competitions/homebrew.jpg
     day: Saturday
     years:
       - year: 2021
@@ -138,7 +138,7 @@ competitions:
             winnersName: Murrah
             winnersPicture: /img/winners/2019/2019-homebrew-3rd.jpg
   - contestName: Kids' Hotdog Contest
-    image: /img/competition/hotdog.jpg
+    image: /img/competitions/hotdog.jpg
     day: Saturday
     years:
       - year: 2021
@@ -146,7 +146,7 @@ competitions:
           sponsorName: Applied Inspection System
           sponsorUrl: https://www.example.com/
   - contestName: Jalapeno Contest
-    image: /img/competition/jalapeno.jpg
+    image: /img/competitions/jalapeno.jpg
     day: Sunday
     years:
       - year: 2021
@@ -182,7 +182,7 @@ competitions:
           secondPlace:
             winnersPicture: /img/winners/2017/2017-jalapeno-2nd.jpg
   - contestName: Mixed Drink Contest
-    image: /img/competition/drink.jpg
+    image: /img/competitions/drink.jpg
     day: Sunday
     years:
       - year: 2021
@@ -220,7 +220,7 @@ competitions:
           thirdPlace:
             winnersPicture: /img/2017-drink-2nd-3rd.jpg
   - contestName: Burger Competition
-    image: /img/competition/burger.jpg
+    image: /img/competitions/burger.jpg
     day: Sunday
     years:
       - year: 2021
