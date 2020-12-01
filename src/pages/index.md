@@ -8,7 +8,8 @@ slideshowImages:
   - src: /img/slideshow2.jpg
     description: Audience applauding a concert at a Chili when it's Chilly weekend.
   - src: /img/slideshow3.jpg
-    description: The Texas flag hung decoratively on the back of a golf cart used to visit the Chili when it's Chilly cook-off's.
+    description: The Texas flag hung decoratively on the back of a golf cart used to
+      visit the Chili when it's Chilly cook-off's.
 sections:
   - >-
     # When?
@@ -91,3 +92,9 @@ sections:
     **Who hosts this?**\
 
     This event is ran by A Major Funding with help from help from Michael Wren, Alan Martin Jr, Kellie Outlaw, "Big Al" - Alan Martin Sr., and Zane Homesley
+externalLinks:
+  - name: Lodging
+    url: https://wallerjellystonepark.com/
+    description: Camp or lodge in a cabin at Yogi Bear's Jellystone Park Camp and
+      Resort located on the event grounds here in Waller, TX!
+---
