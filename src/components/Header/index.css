@@ -5,14 +5,14 @@
   height: var(--header-size);
   padding: var(--header-padding);
   min-height: calc(var(--header-size) + (2 * var(--header-padding)));
-  position: fixed;
   top: 0;
   z-index: 2;
-  color: var(--military-blank); /* FIXME Replace with fill when you get svg */
-  /* fill: var(--military-blank); */
+  color: var(--military-blank);
   --animation-duration: 2000ms;
   transition: height var(--animation-duration);
   position: sticky;
+  display: flex;
+  justify-content: space-between;
 }
 
 #app[scroll='0'] #header
@@ -20,11 +20,18 @@
   height: calc(var(--header-size) * 5);
 }
 
-#header > .main-display
+#a-major-funding-logo
 {
   height: 100%;
-  display: flex;
-  justify-content: space-between;
+  width: var(--header-size);
+  transition: height var(--animation-duration),
+              width var(--animation-duration);
+}
+
+#app[scroll='0'] #a-major-funding-logo
+{
+  height: calc(var(--header-size) * 5);
+  width: calc(var(--header-size) * 5);
 }
 
 #logo

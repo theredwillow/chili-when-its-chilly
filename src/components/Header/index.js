@@ -1,16 +1,18 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import './index.css'
 import './animations.css'
 import Logo from './Logo'
-
-// FIXME I appears when window is shrunk
+import AMajorFunding from './amajorfundinginc.svg'
 
 const Header = () => (
   <div id="header">
-    <div className="main-display">
+    <Link to="/" id="logo">
       <Logo />
-      (Guitar here)
-    </div>
+    </Link>
+    <a href="https://www.amajorfunding.com/" target="_blank" rel="noreferrer">
+      <img id="a-major-funding-logo" src={AMajorFunding} alt="The logo for A Major Funding Inc." />
+    </a>
   </div>
 )
 

@@ -71,6 +71,7 @@ const WinnerBrowser = ({contestName, prevYears}) => {
       )
     }
 
+    // FIXME Importing jpg's, should be using svg's with transparent backgrounds
     return (
       <Img
         className='winner-picture'
@@ -80,7 +81,6 @@ const WinnerBrowser = ({contestName, prevYears}) => {
     )
   }
 
-  // FIXME https://www.gatsbyjs.com/docs/working-with-images-in-markdown/
   return (
     <div className='winner-browser'>
       { getWinnersPicture() }

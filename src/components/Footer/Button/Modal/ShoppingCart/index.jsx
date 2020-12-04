@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 
-// FIXME Create a global way to monitor cart
+// FIXME Import items from Stripe
 const itemsInCart = [
   {
     name: `Ticket to Chili when it's Chilly Cook-Off`,

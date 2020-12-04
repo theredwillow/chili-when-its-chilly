@@ -7,7 +7,6 @@
   }
 }
 
-/* FIXME Should resize with CH_LI */
 @keyframes animate-letter-i {
   33.333333% {
     transform: translateY(62px);
