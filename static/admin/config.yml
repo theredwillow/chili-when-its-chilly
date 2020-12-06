@@ -42,8 +42,10 @@ collections:
               - {label: "URL", name: "url", widget: "string", hint: "Please use https, not http whenever possible."}
               - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that users will know what to expect when they click the link."}
       - file: "src/pages/cook-offs.md"
-        label: "Cook Off's from config"
+        label: "Cook Off's"
         name: "cook-offs"
+        media_folder: static/img/competitions
+        public_folder: /img/competitions
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "hidden", default: "Cook Off's from title"}
@@ -118,7 +120,7 @@ collections:
                           - {label: "Winner's Picture", name: "winnersPicture", widget: "image", hint: "Picture of 3rd place winner, preferably holding trophy or entry."}
           - {label: "Rules", name: "rules", widget: "markdown"}
   - name: "pages"
-    label: "Pages from config"
+    label: "Pages"
     folder: "src/pages/other-pages"
     create: true
     fields:
