@@ -37,7 +37,7 @@ function Menu(){
       description: edge.node.frontmatter.description,
       link: edge.node.fields.slug
     }
-  ))
+  )).sort((x,y) => x.title === "Home Page" ? -1 : y.title === "Home Page" ? 1 : 0);
   const externalLinks = allMarkdownRemark.edges
     .find(edge => edge.node.frontmatter.externalLinks)
     .node.frontmatter.externalLinks
