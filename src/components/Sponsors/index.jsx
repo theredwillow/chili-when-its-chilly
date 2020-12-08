@@ -1,5 +1,5 @@
 import React from 'react'
-// import Img from 'gatsby-image'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import './index.css'
 
@@ -11,16 +11,11 @@ const Sponsors = ({images}) => {
   }
 
   images = images.map((image, i) => (
-    <img
+    <Img
       key={`sponsors-${i}`}
-      src="https://placekitten.com/g/400/200"
-      alt="Place holder kitten"
+      fluid={image.src.childImageSharp.fluid}
+      alt={image.description || `Sponsor number ${i}`}
     />
-    // <Img
-    //   key={`image-${i}`}
-    //   fluid={image.src.childImageSharp.fluid}
-    //   alt={image.description || `Image number ${i} in a slideshow`}
-    // />
   ))
 
   if (images.length === 1) {
@@ -29,9 +24,12 @@ const Sponsors = ({images}) => {
 
   return (
     <div className="sponsors">
+      <h1>Sponsors</h1>
+      <br />
       <Carousel autoplay={true}>
         {images}
       </Carousel>
+      <br />
     </div>
   )
 }

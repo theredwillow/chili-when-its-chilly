@@ -33,6 +33,14 @@ collections:
               - {label: "Image", name: "src", widget: "image"}
               - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
           - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
+          - name: "sponsorImages"
+            label: "Sponsor Image" 
+            widget: "list"
+            optional: true
+            summary: '{{fields.description}}'
+            fields:
+              - {label: "Image", name: "src", widget: "image"}
+              - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
           - name: "externalLinks"
             label: "External Links"
             widget: "list"

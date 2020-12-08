@@ -92,6 +92,39 @@ sections:
     **Who hosts this?**\
 
     This event is ran by A Major Funding with help from help from Michael Wren, Alan Martin Jr, Kellie Outlaw, "Big Al" - Alan Martin Sr., and Zane Homesley
+sponsorImages:
+  - src: /img/sponsors/blackrifle.png
+    description: Black Rifle Coffee Company
+  - src: /img/sponsors/cnp.jpg
+    description: CNP Plastics
+  - src: /img/sponsors/cowboy.jpg
+    description: Cowboy cutting boards
+  - src: /img/sponsors/goshawk.jpg
+    description: Goshawk environmental consulting
+  - src: /img/sponsors/ictr.png
+    description: It's closing time realty (ICTR)
+  - src: /img/sponsors/ktex.jpg
+    description: KTEX 106.1 Sounds like Texas
+  - src: /img/sponsors/kwikkopy.jpg
+    description: Kwik Kopy Business Center
+  - src: /img/sponsors/leider.jpg
+    description: Leider Photography
+  - src: /img/sponsors/lonestar.png
+    description: Lonestar Jelly Stone Park
+  - src: /img/sponsors/moonshine.jpg
+    description: Lip smackin' good Moon Shine brand sweet tea, brewed with real cane sugar in Austin, TX
+  - src: /img/sponsors/pnp.jpg
+    description: PNP Boiler services An industrial services solution company
+  - src: /img/sponsors/reddirt.jpg
+    description: Red Dirt Apparel Custom screen printing in Duncan, OK
+  - src: /img/sponsors/sti.png
+    description: STI Group
+  - src: /img/sponsors/texasmedia.png
+    description: Texas Media Foundry in Bryan, TX
+  - src: /img/sponsors/toppers.png
+    description: Topper's RVs Where your outdoor life begins
+  - src: /img/sponsors/vortex.png
+    description: Vortex
 externalLinks:
   - title: Lodging
     url: https://wallerjellystonepark.com/
