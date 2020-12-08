@@ -41,6 +41,7 @@ collections:
             fields:
               - {label: "Image", name: "src", widget: "image"}
               - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
+          - {label: "Contact Us copy", name: "contactCopy", widget: "markdown"}
           - name: "externalLinks"
             label: "External Links"
             widget: "list"

@@ -125,6 +125,7 @@ sponsorImages:
     description: Topper's RVs Where your outdoor life begins
   - src: /img/sponsors/vortex.png
     description: Vortex
+contactCopy: CWIC is a growing event that is annually attended by thousands of new and repeat participants. Our website traffic increases each year, and we work hard to promote our sponsors and their business. If you are interested in becoming a sponsor of these charitable efforts, please send an email to the [Sponsorship Coordinator by clicking here](mailto:ktexoutlaw@gmail.com)
 externalLinks:
   - title: Lodging
     url: https://wallerjellystonepark.com/

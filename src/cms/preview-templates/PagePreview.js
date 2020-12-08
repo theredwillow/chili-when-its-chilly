@@ -12,6 +12,7 @@ const PagePreview = ({ entry }) => {
       <PageTemplate
         slideshowImages={data.slideshowImages}
         sections={data.sections}
+        contactCopy={data.contactCopy}
         sponsorImages={data.sponsorImages}
       />
     </>

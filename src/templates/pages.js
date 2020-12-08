@@ -22,7 +22,8 @@ export const PageTemplate = ({
   helmet,
   slideshowImages,
   sections,
-  sponsorImages
+  sponsorImages,
+  contactCopy
 }) => {
   return (
     <>
@@ -43,9 +44,7 @@ export const PageTemplate = ({
           <div className="content">
             <Sponsors images={sponsorImages} />
             <br />
-            <span className="contact-us">
-              Contact us at info@chiliwhenitschilly.com
-            </span>
+            <HTMLContent className="contact-us" content={toHTML(contactCopy)} />
             <br />
             <span id="website-by-jared">
               Website by <a href="https://jared-weide-portfolio.web.app/" target="_blank" rel="noreferrer">Jared Weide</a>
@@ -61,7 +60,8 @@ PageTemplate.propTypes = {
   helmet: PropTypes.object,
   slideshowImages: PropTypes.array,
   sections: PropTypes.array,
-  sponsorImages: PropTypes.array
+  sponsorImages: PropTypes.array,
+  contactCopy: PropTypes.string
 }
 
 const Page = ({ data }) => {
@@ -87,6 +87,7 @@ const Page = ({ data }) => {
         slideshowImages={post.frontmatter.slideshowImages}
         sections={post.frontmatter.sections}
         sponsorImages={post.frontmatter.sponsorImages}
+        contactCopy={post.frontmatter.contactCopy}
       />
     </Layout>
   )
@@ -127,6 +128,7 @@ export const pageQuery = graphql`
           }
           description
         }
+        contactCopy
       }
     }
   }
