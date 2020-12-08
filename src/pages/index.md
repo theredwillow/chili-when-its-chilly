@@ -95,36 +95,50 @@ sections:
 sponsorImages:
   - src: /img/sponsors/blackrifle.png
     description: Black Rifle Coffee Company
+    url: https://www.blackriflecoffee.com/
   - src: /img/sponsors/cnp.jpg
-    description: CNP Plastics
+    description: C&P Plastics
+    url: http://www.candpplasticsinc.com/
   - src: /img/sponsors/cowboy.jpg
     description: Cowboy cutting boards
+    url: https://www.cowboycuttingboards.com/
   - src: /img/sponsors/goshawk.jpg
     description: Goshawk environmental consulting
+    url: https://www.goshawkenv.com/
   - src: /img/sponsors/ictr.png
     description: It's closing time realty (ICTR)
+    url: https://www.itsclosingtime.com/
   - src: /img/sponsors/ktex.jpg
     description: KTEX 106.1 Sounds like Texas
+    url: https://www.ktex.com/
   - src: /img/sponsors/kwikkopy.jpg
-    description: Kwik Kopy Business Center
+    description: The Kwik Kopy Business Center Brenham Location
+    url: https://www.kkbcbrenham.com/
   - src: /img/sponsors/leider.jpg
     description: Leider Photography
+    url: http://www.leiderphotography.com/
   - src: /img/sponsors/lonestar.png
     description: Lonestar Jelly Stone Park
+    url: https://www.wallerjellystonepark.com/
   - src: /img/sponsors/moonshine.jpg
     description: Lip smackin' good Moon Shine brand sweet tea, brewed with real cane sugar in Austin, TX
+    url: https://www.moonshinesweettea.com/
   - src: /img/sponsors/pnp.jpg
     description: PNP Boiler services An industrial services solution company
   - src: /img/sponsors/reddirt.jpg
     description: Red Dirt Apparel Custom screen printing in Duncan, OK
+    url: http://www.reddirtapparel.com/
   - src: /img/sponsors/sti.png
     description: STI Group
+    url: https://www.honiron.com/
   - src: /img/sponsors/texasmedia.png
     description: Texas Media Foundry in Bryan, TX
   - src: /img/sponsors/toppers.png
     description: Topper's RVs Where your outdoor life begins
+    url: https://www.toppersrvs.com/
   - src: /img/sponsors/vortex.png
     description: Vortex
+    url: https://www.vortexoptics.com/
 contactCopy: CWIC is a growing event that is annually attended by thousands of new and repeat participants. Our website traffic increases each year, and we work hard to promote our sponsors and their business. If you are interested in becoming a sponsor of these charitable efforts, please send an email to the [Sponsorship Coordinator by clicking here](mailto:ktexoutlaw@gmail.com)
 externalLinks:
   - title: Lodging

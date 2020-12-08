@@ -10,13 +10,24 @@ const Sponsors = ({images}) => {
     return (<></>)
   }
 
-  images = images.map((image, i) => (
-    <Img
-      key={`sponsors-${i}`}
-      fluid={image.src.childImageSharp.fluid}
-      alt={image.description || `Sponsor number ${i}`}
-    />
-  ))
+  images = images.map((image, i) => image.url
+    ? (
+        <a href={image.url} target="_blank" rel="noreferrer">
+          <Img
+            key={`sponsors-${i}`}
+            fluid={image.src.childImageSharp.fluid}
+            alt={image.description || `Sponsor number ${i}`}
+          />
+        </a>
+      )
+    : (
+        <Img
+          key={`sponsors-${i}`}
+          fluid={image.src.childImageSharp.fluid}
+          alt={image.description || `Sponsor number ${i}`}
+        />
+      )
+  )
 
   if (images.length === 1) {
     return images[0]
