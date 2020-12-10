@@ -54,8 +54,6 @@ collections:
       - file: "src/pages/cook-offs.md"
         label: "Cook Off's"
         name: "cook-offs"
-        media_folder: static/img/competitions
-        public_folder: /img/competitions
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "hidden", default: "Cook Off's from title"}
@@ -75,6 +73,8 @@ collections:
                 name: "image"
                 widget: "image"
                 hint: "The logo/image for this year's competition."
+                media_folder: '{{media_folder}}/competitions' # FIXME This is part of a test
+                public_folder: '{{public_folder}}/competitions'
               - name: "Day"
                 label: "day"
                 widget: "select"
