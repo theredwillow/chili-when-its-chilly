@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { PageTemplate } from '../../templates/pages'
+import { PageTemplate } from '../../templates/page'
 
 const PagePreview = ({ entry }) => {
   const data = entry.get('data').toJS()

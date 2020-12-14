@@ -20,9 +20,18 @@ collections:
         label: "Home Page"
         name: "index"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
-          - {label: "Title", name: "title", widget: "hidden", default: "Home Page"}
-          - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
+          - label: "Template Key"
+            name: "templateKey"
+            widget: "hidden"
+            default: "page" # Uses same template as pages collection, no way to create non-optional list item.
+          - label: "Title"
+            name: "title"
+            widget: "hidden"
+            default: "Home Page"
+          - label: "Description"
+            name: "description"
+            widget: "text"
+            hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."
           - name: "slideshowImages"
             label: "Slideshow Image" 
             widget: "list"
@@ -30,42 +39,78 @@ collections:
             summary: '{{fields.description}}'
             hint: "Optional. Choose images to add a slideshow at the top of the page."
             fields:
-              - {label: "Image", name: "src", widget: "image"}
-              - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
-          - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
+              - label: "Image"
+                name: "src"
+                widget: "image"
+                media_folder: "/{{media_folder}}/slideshow"
+                public_folder: "/{{public_folder}}/slideshow"
+              - label: "Description"
+                name: "description"
+                widget: "string"
+                hint: "Please provide a description of what's in this image so that blind people can enjoy it too."
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            field: {label: "Section", name: "section", widget: "markdown"}
           - name: "sponsorImages"
             label: "Sponsor Image" 
             widget: "list"
             optional: true
             summary: '{{fields.description}}'
-            media_folder: "../../static/img/sponsors"
-            public_folder: "/img/sponsors"
             fields:
-              - {label: "Image", name: "src", widget: "image"}
-              - {label: "Description", name: "description", widget: "string", hint: "Please provide a description of what's in this image so that blind people can enjoy it too."}
-              - {label: "Web Site", name: "url", widget: "string", hint: "Please use https, not http whenever possible."}
-          - {label: "Contact Us copy", name: "contactCopy", widget: "markdown"}
+              - label: "Image"
+                name: "src"
+                widget: "image"
+                media_folder: "/{{media_folder}}/sponsors"
+                public_folder: "/{{public_folder}}/sponsors"
+              - label: "Description"
+                name: "description"
+                widget: "string"
+                hint: "Please provide a description of what's in this image so that blind people can enjoy it too."
+              - label: "Web Site"
+                name: "url"
+                widget: "string"
+                hint: "Please use https, not http whenever possible."
+          - label: "Contact Us copy"
+            name: "contactCopy"
+            widget: "markdown"
           - name: "externalLinks"
             label: "External Links"
             widget: "list"
             summary: '{{fields.name}}'
             fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "URL", name: "url", widget: "string", hint: "Please use https, not http whenever possible."}
-              - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that users will know what to expect when they click the link."}
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "URL"
+                name: "url"
+                widget: "string"
+                hint: "Please use https, not http whenever possible."
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                hint: "Please provide a description of what is on this page so that users will know what to expect when they click the link."
       - file: "src/pages/cook-offs.md"
         label: "Cook Off's"
         name: "cook-offs"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "page"}
-          - {label: "Title", name: "title", widget: "hidden", default: "Cook Off's from title"}
-          - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
+          - label: "Template Key"
+            name: "templateKey"
+            widget: "hidden"
+            default: "cook-offs"
+          - label: "Title"
+            name: "title"
+            widget: "hidden"
+            default: "Cook Off's"
+          - label: "Description"
+            name: "description"
+            widget: "text"
+            hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."
           - name: "competitions"
             label: "Competitions"
             widget: "list"
             optional: true
             summary: '{{fields.contestName}}'
-            # FIXME media_folder and public_folder settings
             fields:
               - label: "Contest Name"
                 name: "contestName"
@@ -75,8 +120,8 @@ collections:
                 name: "image"
                 widget: "image"
                 hint: "The logo/image for this year's competition."
-                media_folder: "competitions"
-                public_folder: "/img/competitions"
+                media_folder: "/{{media_folder}}/competitions"
+                public_folder: "/{{public_folder}}/competitions"
               - name: "Day"
                 label: "day"
                 widget: "select"
@@ -87,8 +132,7 @@ collections:
                 label: "Years"
                 widget: "list"
                 summary: "{{fields.year}}"
-                media_folder: "winners/{{fields.year}}"
-                public_folder: "/img/winners/{{fields.year}}"
+                optional: true
                 hint: "Provide sponsor information for upcoming event. Or for previous years, provide images and names for the winners' gallery."
                 fields:
                   - label: "Year"
@@ -107,6 +151,8 @@ collections:
                     label: "winners"
                     widget: "object"
                     optional: true
+                    media_folder: "/{{media_folder}}/winners/{{fields.year}}"
+                    public_folder: "/{{public_folder}}/winners/{{fields.year}}"
                     fields:
                       - name: "First Place"
                         label: "firstPlace"
@@ -114,31 +160,60 @@ collections:
                         summary: "1st: {{fields.winnersName}}"
                         optional: true
                         fields:
-                          - {label: "Winner's Name", name: "winnersName", widget: "string", optional: true}
-                          - {label: "Winner's Picture", name: "winnersPicture", widget: "image", hint: "Picture of 1st place winner, preferably holding trophy or entry."}
+                          - label: "Winner's Name"
+                            name: "winnersName"
+                            widget: "string"
+                            optional: true
+                          - label: "Winner's Picture"
+                            name: "winnersPicture"
+                            widget: "image"
+                            hint: "Picture of 1st place winner, preferably holding trophy or entry."
                       - name: "Second Place"
                         label: "secondPlace"
                         widget: "object"
                         summary: "2nd: {{fields.winnersName}}"
                         optional: true
                         fields:
-                          - {label: "Winner's Name", name: "winnersName", widget: "string", optional: true}
-                          - {label: "Winner's Picture", name: "winnersPicture", widget: "image", hint: "Picture of 2nd place winner, preferably holding trophy or entry."}
+                          - label: "Winner's Name"
+                            name: "winnersName"
+                            widget: "string"
+                            optional: true
+                          - label: "Winner's Picture"
+                            name: "winnersPicture"
+                            widget: "image"
+                            hint: "Picture of 2nd place winner, preferably holding trophy or entry."
                       - name: "Third Place"
                         label: "thirdPlace"
                         widget: "object"
                         summary: "3rd: {{fields.winnersName}}"
                         optional: true
                         fields:
-                          - {label: "Winner's Name", name: "winnersName", widget: "string", optional: true}
-                          - {label: "Winner's Picture", name: "winnersPicture", widget: "image", hint: "Picture of 3rd place winner, preferably holding trophy or entry."}
+                          - label: "Winner's Name"
+                            name: "winnersName"
+                            widget: "string"
+                            optional: true
+                          - label: "Winner's Picture"
+                            name: "winnersPicture"
+                            widget: "image"
+                            hint: "Picture of 3rd place winner, preferably holding trophy or entry."
           - {label: "Rules", name: "rules", widget: "markdown"}
   - name: "pages"
     label: "Pages"
     folder: "src/pages/other-pages"
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "pages"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Description", name: "description", widget: "text", hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."}
-      - {label: "Sections", name: "sections", widget: "list", field: {label: "Section", name: "section", widget: "markdown"}}
+      - label: "Template Key"
+        name: "templateKey"
+        widget: "hidden"
+        default: "page"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."
+      - label: "Sections"
+        name: "sections"
+        widget: "list"
+        field: {label: "Section", name: "section", widget: "markdown"}

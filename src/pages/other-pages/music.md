@@ -1,5 +1,5 @@
 ---
-templateKey: pages
+templateKey: page
 title: Music
 description: Check out who will be playing at this year's Chili When It's Chilly weekend!
 sections:
