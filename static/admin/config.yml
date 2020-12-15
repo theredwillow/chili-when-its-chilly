@@ -35,7 +35,7 @@ collections:
           - name: "slideshowImages"
             label: "Slideshow Image" 
             widget: "list"
-            optional: true
+            required: false
             summary: '{{fields.description}}'
             hint: "Optional. Choose images to add a slideshow at the top of the page."
             fields:
@@ -55,7 +55,7 @@ collections:
           - name: "sponsorImages"
             label: "Sponsor Image" 
             widget: "list"
-            optional: true
+            required: false
             summary: '{{fields.description}}'
             fields:
               - label: "Image"
@@ -109,7 +109,7 @@ collections:
           - name: "competitions"
             label: "Competitions"
             widget: "list"
-            optional: true
+            required: false
             summary: '{{fields.contestName}}'
             fields:
               - label: "Contest Name"
@@ -132,7 +132,7 @@ collections:
                 label: "Years"
                 widget: "list"
                 summary: "{{fields.year}}"
-                optional: true
+                required: false
                 hint: "Provide sponsor information for upcoming event. Or for previous years, provide images and names for the winners' gallery."
                 fields:
                   - label: "Year"
@@ -142,7 +142,7 @@ collections:
                   - name: "Sponsor"
                     label: "sponsor"
                     widget: "object"
-                    optional: true
+                    required: false
                     summary: "Sponsored by {{fields.sponsorName}}"
                     fields:
                       - {label: "Name", name: "sponsorName", widget: "string"}
@@ -150,7 +150,7 @@ collections:
                   - name: "Winners"
                     label: "winners"
                     widget: "object"
-                    optional: true
+                    required: false
                     media_folder: "/{{media_folder}}/winners/{{fields.year}}"
                     public_folder: "/{{public_folder}}/winners/{{fields.year}}"
                     fields:
@@ -158,12 +158,12 @@ collections:
                         label: "firstPlace"
                         widget: "object"
                         summary: "1st: {{fields.winnersName}}"
-                        optional: true
+                        required: false
                         fields:
                           - label: "Winner's Name"
                             name: "winnersName"
                             widget: "string"
-                            optional: true
+                            required: false
                           - label: "Winner's Picture"
                             name: "winnersPicture"
                             widget: "image"
@@ -172,12 +172,12 @@ collections:
                         label: "secondPlace"
                         widget: "object"
                         summary: "2nd: {{fields.winnersName}}"
-                        optional: true
+                        required: false
                         fields:
                           - label: "Winner's Name"
                             name: "winnersName"
                             widget: "string"
-                            optional: true
+                            required: false
                           - label: "Winner's Picture"
                             name: "winnersPicture"
                             widget: "image"
@@ -186,12 +186,12 @@ collections:
                         label: "thirdPlace"
                         widget: "object"
                         summary: "3rd: {{fields.winnersName}}"
-                        optional: true
+                        required: false
                         fields:
                           - label: "Winner's Name"
                             name: "winnersName"
                             widget: "string"
-                            optional: true
+                            required: false
                           - label: "Winner's Picture"
                             name: "winnersPicture"
                             widget: "image"
