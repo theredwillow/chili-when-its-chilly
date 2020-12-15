@@ -77,7 +77,7 @@ collections:
           - name: "externalLinks"
             label: "External Links"
             widget: "list"
-            summary: '{{fields.name}}'
+            summary: '{{fields.title}}'
             fields:
               - label: "Title"
                 name: "title"
