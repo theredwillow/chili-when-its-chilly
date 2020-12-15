@@ -90,7 +90,7 @@ collections:
                 name: "description"
                 widget: "text"
                 hint: "Please provide a description of what is on this page so that users will know what to expect when they click the link."
-      - file: "src/pages/cook-offs.md"
+      - file: "src/pages/cook-offs/index.md"
         label: "Cook Off's"
         name: "cook-offs"
         fields:
