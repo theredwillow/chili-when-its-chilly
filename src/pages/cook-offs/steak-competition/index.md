@@ -1,13 +1,8 @@
 ---
 templateKey: cook-off
 title: Steak Competition
-image: /img/competitions/steak.jpg
-day: Friday
-years:
-  - year: 2021
-    sponsor:
-      sponsorName: C&P
-      sponsorUrl: http://www.example.com/
+image: /img/steak.jpg
+prevYears:
   - year: 2019
     winners:
       firstPlace:

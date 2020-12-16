@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   repo: theredwillow/chili-when-its-chilly
-  branch: master
+  branch: relation-widget # IMPORTANT Set this back to master before deploy
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
@@ -129,42 +129,25 @@ collections:
         name: "image"
         widget: "image"
         hint: "The logo/image for this year's competition."
-        media_folder: "/{{media_folder}}/competitions"
-        public_folder: "/{{public_folder}}/competitions"
-      - name: "Day"
-        label: "day"
-        widget: "select"
-        hint: "Day the event will be held on."
-        multiple: false
-        options: ["Friday", "Saturday", "Sunday"]
-      - name: "years"
-        label: "Years"
+        media_folder: ""
+      - name: "prevYears"
+        label: "Previous Years"
         widget: "list"
         summary: "{{fields.year}}"
         required: false
-        hint: "Provide sponsor information for upcoming event. Or for previous years, provide images and names for the winners' gallery."
+        hint: "Provide previous years' images and names for the winners' gallery."
         fields:
           - label: "Year"
             name: "year"
             widget: "string"
             pattern: ['^\d{4}$', "Must be a four-digit year (i.e. 2000)."]
-          - name: "Sponsor"
-            label: "sponsor"
+          - label: "Winners"
+            name: "winners"
             widget: "object"
             required: false
-            summary: "Sponsored by {{fields.sponsorName}}"
             fields:
-              - {label: "Name", name: "sponsorName", widget: "string"}
-              - {label: "URL", name: "sponsorUrl", widget: "string", hint: "Provide the URL to the sponsor's website."}
-          - name: "Winners"
-            label: "winners"
-            widget: "object"
-            required: false
-            media_folder: "/{{media_folder}}/winners/{{fields.year}}"
-            public_folder: "/{{public_folder}}/winners/{{fields.year}}"
-            fields:
-              - name: "First Place"
-                label: "firstPlace"
+              - label: "First Place"
+                name: "firstPlace"
                 widget: "object"
                 summary: "1st: {{fields.winnersName}}"
                 required: false
@@ -176,9 +159,11 @@ collections:
                   - label: "Winner's Picture"
                     name: "winnersPicture"
                     widget: "image"
+                    media_folder: "winners"
+                    public_folder: "/{{public_folder}}/winners"
                     hint: "Picture of 1st place winner, preferably holding trophy or entry."
-              - name: "Second Place"
-                label: "secondPlace"
+              - label: "Second Place"
+                name: "secondPlace"
                 widget: "object"
                 summary: "2nd: {{fields.winnersName}}"
                 required: false
@@ -190,9 +175,11 @@ collections:
                   - label: "Winner's Picture"
                     name: "winnersPicture"
                     widget: "image"
+                    media_folder: "winners"
+                    public_folder: "/{{public_folder}}/winners"
                     hint: "Picture of 2nd place winner, preferably holding trophy or entry."
-              - name: "Third Place"
-                label: "thirdPlace"
+              - label: "Third Place"
+                name: "thirdPlace"
                 widget: "object"
                 summary: "3rd: {{fields.winnersName}}"
                 required: false
@@ -204,6 +191,8 @@ collections:
                   - label: "Winner's Picture"
                     name: "winnersPicture"
                     widget: "image"
+                    media_folder: "winners"
+                    public_folder: "/{{public_folder}}/winners"
                     hint: "Picture of 3rd place winner, preferably holding trophy or entry."
   - name: "pages"
     label: "Pages"
