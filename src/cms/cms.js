@@ -9,5 +9,5 @@ CMS.registerMediaLibrary(uploadcare)
 CMS.registerMediaLibrary(cloudinary)
 
 CMS.registerPreviewTemplate('index', PagePreview)
-CMS.registerPreviewTemplate('cook-offs', CookOffsPreview)
+CMS.registerPreviewTemplate('cook-offs-page', CookOffsPreview)
 CMS.registerPreviewTemplate('page', PagePreview)

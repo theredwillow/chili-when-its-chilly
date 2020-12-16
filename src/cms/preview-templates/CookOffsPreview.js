@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { CookOffsTemplate } from '../../templates/cook-offs'
+import { CookOffsTemplate } from '../../templates/cook-offs-page'
 
 const CookOffsPreview = ({ entry }) => {
   const data = entry.get('data').toJS()

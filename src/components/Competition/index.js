@@ -24,7 +24,7 @@ const Competition = ({info}) => {
     <div className={`competition`}>
       <Img
         fixed={info.image.childImageSharp.fixed}
-        alt={info.contestName}
+        alt={info.title}
       />
       {
         Boolean(!isOpen && prevYears.length) &&
@@ -51,7 +51,7 @@ const Competition = ({info}) => {
               (Close Previous Winners Display)
             </div>
             <WinnerBrowser
-              contestName={info.contestName}
+              contestName={info.title}
               prevYears={prevYears.reduce((o, key) => ({ ...o, [key.year]: key}), {})}
             />
           </div>

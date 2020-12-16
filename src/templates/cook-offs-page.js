@@ -39,7 +39,7 @@ export const CookOffsTemplate = ({
               Object.entries(competitions).map(([day, values]) => (
                 <React.Fragment key={day}>
                   <h2>{day}</h2>
-                  { values.map(info => <Competition key={info.contestName} info={info} />) }
+                  { values.map(info => <Competition key={info.title} info={info} />) }
                 </React.Fragment>
               ))
             }
@@ -109,56 +109,6 @@ export const cookOffsQuery = graphql`
       frontmatter {
         title
         description
-        competitions {
-          contestName
-          image {
-            childImageSharp {
-              fixed {
-                ...GatsbyImageSharpFixed
-              }
-            }
-          }
-          day
-          years {
-            year
-            sponsor {
-              sponsorName
-              sponsorUrl
-            }
-            winners {
-              firstPlace {
-                winnersName
-                winnersPicture {
-                  childImageSharp {
-                    fixed(width: 350) {
-                      ...GatsbyImageSharpFixed
-                    }
-                  }
-                }
-              }
-              secondPlace {
-                winnersName
-                winnersPicture {
-                  childImageSharp {
-                    fixed(width: 350) {
-                      ...GatsbyImageSharpFixed
-                    }
-                  }
-                }
-              }
-              thirdPlace {
-                winnersName
-                winnersPicture {
-                  childImageSharp {
-                    fixed(width: 350) {
-                      ...GatsbyImageSharpFixed
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
         rules
       }
     }
