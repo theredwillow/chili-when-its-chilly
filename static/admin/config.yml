@@ -93,7 +93,7 @@ collections:
                 name: "description"
                 widget: "text"
                 hint: "Please provide a description of what is on this page so that users will know what to expect when they click the link."
-      - file: "src/pages/cook-offs/index.md"
+      - file: "src/pages/cook-offs.md"
         label: "Cook Off's"
         name: "cook-offs-page"
         fields:
@@ -113,9 +113,11 @@ collections:
   - name: "cook-off"
     label: "Cook Off's"
     label_singular: "Cook Off"
-    folder: src/pages/cook-offs
+    folder: src/cook-offs
     path: '{{slug}}/index'
     create: true
+    editor:
+      preview: false
     fields:
       - label: "Template Key"
         name: "templateKey"
