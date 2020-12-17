@@ -1,7 +1,7 @@
 ---
 templateKey: cook-off
 title: Homebrew Competition
-image: /img/homebrew.jpg
+image: /img/contest-logos/homebrew.jpg
 prevYears:
   - year: 2019
     winners:

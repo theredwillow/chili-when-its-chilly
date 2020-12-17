@@ -1,7 +1,7 @@
 ---
 templateKey: cook-off
 title: Mixed Drink Contest
-image: /img/drink.jpg
+image: /img/contest-logos/drink.jpg
 prevYears:
   - year: 2019
     winners:

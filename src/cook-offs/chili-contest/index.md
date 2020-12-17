@@ -1,7 +1,7 @@
 ---
 templateKey: cook-off
 title: Chili Contest
-image: /img/chili.jpg
+image: /img/contest-logos/chili.jpg
 prevYears:
   - year: 2019
     winners:

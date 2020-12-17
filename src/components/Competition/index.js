@@ -4,15 +4,10 @@ import Img from 'gatsby-image'
 import WinnerBrowser from './WinnerBrowser'
 import './index.css'
 
-const Competition = ({info}) => {
+const Competition = ({title, image, prevYears}) => {
   const [isOpen, setOpen] = useState(false)
 
-  let prevYears = []
-  if (info && info.years && info.years.length) {
-    prevYears = info.years.filter(y => y.winners)
-  }
-
-  if (!info || !info.image) {
+  if (!image) {
     return (
       <div>
         Sorry, there was an error while displaying this competition's image.
@@ -23,8 +18,8 @@ const Competition = ({info}) => {
   return (
     <div className={`competition`}>
       <Img
-        fixed={info.image.childImageSharp.fixed}
-        alt={info.title}
+        fixed={image.childImageSharp.fixed}
+        alt={title}
       />
       {
         Boolean(!isOpen && prevYears.length) &&
@@ -51,7 +46,7 @@ const Competition = ({info}) => {
               (Close Previous Winners Display)
             </div>
             <WinnerBrowser
-              contestName={info.title}
+              contestName={title}
               prevYears={prevYears.reduce((o, key) => ({ ...o, [key.year]: key}), {})}
             />
           </div>
@@ -61,7 +56,9 @@ const Competition = ({info}) => {
 }
 
 Competition.propTypes = {
-  info: PropTypes.object.isRequired
+  title: PropTypes.string.isRequired,
+  image: PropTypes.any,
+  prevYears: PropTypes.array
 }
 
 export default Competition

@@ -1,7 +1,7 @@
 ---
 templateKey: cook-off
 title: Steak Competition
-image: /img/steak.jpg
+image: /img/contest-logos/steak.jpg
 prevYears:
   - year: 2019
     winners:

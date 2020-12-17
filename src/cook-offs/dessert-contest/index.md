@@ -1,7 +1,7 @@
 ---
 templateKey: cook-off
 title: Dessert Contest
-image: /img/dessert.jpg
+image: /img/contest-logos/dessert.jpg
 prevYears:
   - year: 2019
     winners:

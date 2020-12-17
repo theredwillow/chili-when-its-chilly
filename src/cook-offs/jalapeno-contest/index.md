@@ -1,7 +1,7 @@
 ---
 templateKey: cook-off
 title: Jalapeno Contest
-image: /img/jalapeno.jpg
+image: /img/contest-logos/jalapeno.jpg
 prevYears:
   - year: 2019
     winners:

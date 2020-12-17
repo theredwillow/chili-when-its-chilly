@@ -52,11 +52,13 @@ collections:
                 widget: "string"
                 hint: "Please provide a description of what's in this image so that blind people can enjoy it too."
           - label: "Sections"
+            label_singular: "Section"
             name: "sections"
             widget: "list"
             field: {label: "Section", name: "section", widget: "markdown"}
           - name: "sponsorImages"
-            label: "Sponsor Image" 
+            label: "Sponsor Images" 
+            label_singular: "Sponsor Image"
             widget: "list"
             required: false
             summary: '{{fields.description}}'
@@ -79,6 +81,7 @@ collections:
             widget: "markdown"
           - name: "externalLinks"
             label: "External Links"
+            label_singular: "External Link"
             widget: "list"
             summary: '{{fields.title}}'
             fields:
@@ -109,11 +112,35 @@ collections:
             name: "description"
             widget: "text"
             hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."
+          - label: "Friday Cook-off Schedule"
+            name: "friday"
+            widget: "relation"
+            collection: "cook-off"
+            search_fields: ["title"]
+            value_field: "title"
+            display_fields: ["title"]
+            multiple: true
+          - label: "Saturday Cook-off Schedule"
+            name: "saturday"
+            widget: "relation"
+            collection: "cook-off"
+            search_fields: ["title"]
+            value_field: "title"
+            display_fields: ["title"]
+            multiple: true
+          - label: "Sunday Cook-off Schedule"
+            name: "sunday"
+            widget: "relation"
+            collection: "cook-off"
+            search_fields: ["title"]
+            value_field: "title"
+            display_fields: ["title"]
+            multiple: true
           - {label: "Rules", name: "rules", widget: "markdown"}
   - name: "cook-off"
     label: "Cook Off's"
     label_singular: "Cook Off"
-    folder: src/cook-offs
+    folder: "src/cook-offs"
     path: '{{slug}}/index'
     create: true
     editor:
@@ -132,8 +159,10 @@ collections:
         widget: "image"
         hint: "The logo/image for this year's competition."
         media_folder: ""
+        public_folder: "/{{public_folder}}/contest-logos"
       - name: "prevYears"
         label: "Previous Years"
+        label_singular: "Year"
         widget: "list"
         summary: "{{fields.year}}"
         required: false
@@ -154,48 +183,48 @@ collections:
                 summary: "1st: {{fields.winnersName}}"
                 required: false
                 fields:
-                  - label: "Winner's Name"
+                  - label: "First Place Winner's Name"
                     name: "winnersName"
                     widget: "string"
                     required: false
-                  - label: "Winner's Picture"
+                  - label: "First Place Winner's Picture"
                     name: "winnersPicture"
                     widget: "image"
                     media_folder: "winners"
                     public_folder: "/{{public_folder}}/winners"
-                    hint: "Picture of 1st place winner, preferably holding trophy or entry."
+                    hint: "Picture of 1st place winner, preferably holding trophy or entry. When uploading images, it is preferred to name them like so '{four-digit-year}-{single-word-contest-name}-{place}.jpg'. For example: '2019-burger-1st.jpg'"
               - label: "Second Place"
                 name: "secondPlace"
                 widget: "object"
                 summary: "2nd: {{fields.winnersName}}"
                 required: false
                 fields:
-                  - label: "Winner's Name"
+                  - label: "Second Place Winner's Name"
                     name: "winnersName"
                     widget: "string"
                     required: false
-                  - label: "Winner's Picture"
+                  - label: "Second Place Winner's Picture"
                     name: "winnersPicture"
                     widget: "image"
                     media_folder: "winners"
                     public_folder: "/{{public_folder}}/winners"
-                    hint: "Picture of 2nd place winner, preferably holding trophy or entry."
+                    hint: "Picture of 2nd place winner, preferably holding trophy or entry. When uploading images, it is preferred to name them like so '{four-digit-year}-{single-word-contest-name}-{place}.jpg'. For example: '2019-drink-2nd.jpg'"
               - label: "Third Place"
                 name: "thirdPlace"
                 widget: "object"
                 summary: "3rd: {{fields.winnersName}}"
                 required: false
                 fields:
-                  - label: "Winner's Name"
+                  - label: "Third Place Winner's Name"
                     name: "winnersName"
                     widget: "string"
                     required: false
-                  - label: "Winner's Picture"
+                  - label: "Third Place Winner's Picture"
                     name: "winnersPicture"
                     widget: "image"
                     media_folder: "winners"
                     public_folder: "/{{public_folder}}/winners"
-                    hint: "Picture of 3rd place winner, preferably holding trophy or entry."
+                    hint: "Picture of 3rd place winner, preferably holding trophy or entry. When uploading images, it is preferred to name them like so '{four-digit-year}-{single-word-contest-name}-{place}.jpg'. For example: '2019-homebrew-3rd.jpg'"
   - name: "pages"
     label: "Pages"
     label_singular: "Page"
@@ -214,6 +243,7 @@ collections:
         widget: "text"
         hint: "Please provide a description of what is on this page so that search engines can display what to expect on your page more accurately."
       - label: "Sections"
+        label_singular: "Section"
         name: "sections"
         widget: "list"
         field: {label: "Section", name: "section", widget: "markdown"}

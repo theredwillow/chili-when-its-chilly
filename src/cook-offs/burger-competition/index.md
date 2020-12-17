@@ -1,7 +1,7 @@
 ---
 templateKey: cook-off
 title: Burger Competition
-image: /img/burger.jpg
+image: /img/contest-logos/burger.jpg
 prevYears:
   - year: 2019
     winners:

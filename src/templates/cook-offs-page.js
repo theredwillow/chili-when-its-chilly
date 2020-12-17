@@ -20,52 +20,54 @@ export const CookOffsTemplate = ({
   helmet,
   competitions,
   rules
-}) => {
-  competitions = competitions.reduce((memo, x) => {
-    if (!memo[x.day]) {
-      memo[x.day] = []
-    }
-    memo[x.day].push(x)
-    return memo
-  }, {})
-  return (
-    <>
-      {helmet || ''}
-      <div id="sections">
-        <Section isFirst>
-          <div className="content">
-            <h1>Cook-Off's</h1>
+}) => (
+  <>
+    {helmet || ''}
+    <div id="sections">
+      <Section isFirst>
+        <div className="content">
+          <h1>Cook-Off's</h1>
+            <h2>Friday</h2>
             {
-              Object.entries(competitions).map(([day, values]) => (
-                <React.Fragment key={day}>
-                  <h2>{day}</h2>
-                  { values.map(info => <Competition key={info.title} info={info} />) }
-                </React.Fragment>
-              ))
+              competitions
+                .filter(cO => cO.day === "Friday")
+                .map(cO => <Competition key={cO.title} {...cO} />)
             }
-          </div>
-        </Section>
-        <Section>
-          <div className="content">
-            <h1>Rules</h1>
-            <HTMLContent content={toHTML(rules)} />
-          </div>
-        </Section>
-        <Section isLast>
-          <div className="content">
-            {/* <Sponsors sponsors={sponsors} /> */}
-            <span className="contact-us">
-              Contact us at info@chiliwhenitschilly.com
-            </span>
-            <span id="website-by-jared">
-              Website by <a href="https://jared-weide-portfolio.web.app/" target="_blank" rel="noreferrer">Jared Weide</a>
-            </span>
-          </div>
-        </Section>
-      </div>
-    </>
-  )
-}
+            <h2>Saturday</h2>
+            {
+              competitions
+                .filter(cO => cO.day === "Saturday")
+                .map(cO => <Competition key={cO.title} {...cO} />)
+            }
+            <h2>Sunday</h2>
+            {
+              competitions
+                .filter(cO => cO.day === "Sunday")
+                .map(cO => <Competition key={cO.title} {...cO} />)
+            }
+            {/* FIXME Handle Unknown's */}
+        </div>
+      </Section>
+      <Section>
+        <div className="content">
+          <h1>Rules</h1>
+          <HTMLContent content={toHTML(rules)} />
+        </div>
+      </Section>
+      <Section isLast>
+        <div className="content">
+          {/* <Sponsors sponsors={sponsors} /> */}
+          <span className="contact-us">
+            Contact us at info@chiliwhenitschilly.com
+          </span>
+          <span id="website-by-jared">
+            Website by <a href="https://jared-weide-portfolio.web.app/" target="_blank" rel="noreferrer">Jared Weide</a>
+          </span>
+        </div>
+      </Section>
+    </div>
+  </>
+)
 
 CookOffsTemplate.propTypes = {
   helmet: PropTypes.object,
@@ -74,7 +76,22 @@ CookOffsTemplate.propTypes = {
 }
 
 const CookOffs = ({ data }) => {
-  const { markdownRemark: post } = data 
+  const { markdownRemark: post, allMarkdownRemark } = data
+  const competitions = allMarkdownRemark.edges.map(c => {
+    const cookOut = c.node.frontmatter
+    return (
+      {
+        ...cookOut,
+        day: (post.frontmatter.friday.includes(cookOut.title))
+          ? "Friday"
+          : (post.frontmatter.saturday.includes(cookOut.title))
+            ? "Saturday"
+            : (post.frontmatter.sunday.includes(cookOut.title))
+              ? "Sunday"
+              : "Unknown"
+      }
+    )
+  })
 
   return (
     <Layout>
@@ -88,7 +105,7 @@ const CookOffs = ({ data }) => {
             />
           </Helmet>
         }
-        competitions={post.frontmatter.competitions}
+        competitions={competitions}
         rules={post.frontmatter.rules}
       />
     </Layout>
@@ -96,7 +113,7 @@ const CookOffs = ({ data }) => {
 }
 
 CookOffs.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 }
 
 export default CookOffs
@@ -104,12 +121,65 @@ export default CookOffs
 export const cookOffsQuery = graphql`
   query CookOffsByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      id
       html
       frontmatter {
         title
         description
+        friday
+        saturday
+        sunday
         rules
+      }
+    }
+    allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "cook-off" } } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            image {
+              childImageSharp {
+                fixed {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+            prevYears {
+              year
+              winners {
+                firstPlace {
+                  winnersName
+                  winnersPicture {
+                    childImageSharp {
+                      fixed(width: 350) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                }
+                secondPlace {
+                  winnersName
+                  winnersPicture {
+                    childImageSharp {
+                      fixed(width: 350) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                }
+                thirdPlace {
+                  winnersName
+                  winnersPicture {
+                    childImageSharp {
+                      fixed(width: 350) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
