@@ -8,7 +8,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(filter: {frontmatter: {templateKey: {glob: "*page"}}}) {
         edges {
           node {
             id
@@ -28,8 +28,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges
-    const pages = posts.filter(p => /page$/.test(p.node.frontmatter.templateKey))
+    const pages = result.data.allMarkdownRemark.edges
     pages.forEach((edge) => {
       createPage({
         path: edge.node.fields.slug,

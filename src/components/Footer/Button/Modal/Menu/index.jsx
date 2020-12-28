@@ -9,7 +9,7 @@ function Menu(){
   const { allMarkdownRemark } = useStaticQuery(
     graphql`
       query AllPages {
-        allMarkdownRemark {
+        allMarkdownRemark(filter: {frontmatter: {templateKey: {glob: "*page"}}}) {
           edges {
             node {
               frontmatter {
