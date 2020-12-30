@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   repo: theredwillow/chili-when-its-chilly
-  branch: relation-widget # IMPORTANT Set this back to master before deploy
+  branch: master
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
