@@ -4,6 +4,7 @@
   width: 100%;
   height: var(--header-size);
   padding: var(--header-padding);
+  max-height: var(--header-max);
   min-height: calc(var(--header-size) + (2 * var(--header-padding)));
   top: 0;
   z-index: 2;
@@ -30,7 +31,6 @@
 
 #app[scroll='0'] #a-major-funding-logo
 {
-  height: calc(var(--header-size) * 5);
   width: calc(var(--header-size) * 5);
 }
 

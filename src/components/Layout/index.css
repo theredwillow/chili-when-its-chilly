@@ -9,10 +9,12 @@
   --military-blank: #E5E5E5;
 
   --header-size: 7.5vh;
+  --header-max: 20vw;
   --header-padding: 10px;
 }
 
 body {
+  background-color: var(--military-primary);
   margin: 0;
   text-align: center;
   padding-bottom: var(--header-size);
@@ -38,6 +40,14 @@ button
 .contact-us
 {
   display: block;
+}
+
+#map-to-jellystone
+{
+  height: 51vw;
+  width: 68vw;
+  max-height: 300px;
+  max-width: 400px;
 }
 
 #website-by-jared
