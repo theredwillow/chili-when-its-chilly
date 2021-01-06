@@ -14,7 +14,6 @@
 }
 
 body {
-  background-color: var(--military-primary);
   margin: 0;
   text-align: center;
   padding-bottom: var(--header-size);
@@ -42,7 +41,7 @@ button
   display: block;
 }
 
-#map-to-jellystone
+iframe[src~="google.com/maps"]
 {
   height: 51vw;
   width: 68vw;
