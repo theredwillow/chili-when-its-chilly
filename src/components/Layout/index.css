@@ -41,7 +41,7 @@ button
   display: block;
 }
 
-iframe[src~="google.com/maps"]
+iframe[src*="google.com/maps"]
 {
   height: 51vw;
   width: 68vw;
