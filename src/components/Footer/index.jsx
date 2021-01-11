@@ -3,11 +3,20 @@ import './index.css'
 import Button from './Button'
 import Modal from './Button/Modal'
 
+const ANIMATION_TIME = 1000;
+
 function Footer() {
   const [modalOpen, setModalOpen] = useState('closed')
-  const toggleModalOpen = (modalName) => setModalOpen(
-    (modalOpen === modalName) ? 'closed' : modalName
-  )
+  const toggleModalOpen = (modalName) => {
+    if (new RegExp(modalName).test(modalOpen)) {
+      setModalOpen(`closing ${modalName}`)
+      setTimeout(() => setModalOpen('closed'), ANIMATION_TIME)
+    }
+    else {
+      setModalOpen(`opening ${modalName}`)
+      setTimeout(() => setModalOpen(modalName), 1)
+    }
+  }
   return (
     <>
       <div id="footer">

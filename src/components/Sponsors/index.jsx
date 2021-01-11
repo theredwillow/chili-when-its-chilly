@@ -12,9 +12,13 @@ const Sponsors = ({images}) => {
 
   images = images.map((image, i) => image.url
     ? (
-        <a href={image.url} target="_blank" rel="noreferrer">
+        <a
+          href={image.url}
+          target="_blank"
+          rel="noreferrer"
+          key={`sponsors-${i}`}
+        >
           <Img
-            key={`sponsors-${i}`}
             fluid={image.src.childImageSharp.fluid}
             alt={image.description || `Sponsor number ${i}`}
           />

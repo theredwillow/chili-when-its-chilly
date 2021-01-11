@@ -19,13 +19,13 @@ function Modal({selected, handleClose}) {
   }
 
   let modalToDisplay = (<></>)
-  if (selected === "cause") {
+  if (/cause/.test(selected)) {
     modalToDisplay = <TheCause />
   }
-  else if (selected === "cart") {
+  else if (/cart/.test(selected)) {
     modalToDisplay = <ShoppingCart />
   }
-  else if (selected === "menu") {
+  else if (/menu/.test(selected)) {
     modalToDisplay = <Menu />
   }
 

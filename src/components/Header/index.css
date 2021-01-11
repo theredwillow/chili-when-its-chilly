@@ -4,10 +4,10 @@
   width: 100%;
   height: var(--header-size);
   padding: var(--header-padding);
-  max-height: var(--header-max);
+  max-height: 20vw;
   min-height: calc(var(--header-size) + (2 * var(--header-padding)));
   top: 0;
-  z-index: 2;
+  z-index: 1;
   color: var(--military-blank);
   --animation-duration: 2000ms;
   transition: height var(--animation-duration);
@@ -25,6 +25,7 @@
 {
   height: 100%;
   width: var(--header-size);
+  max-width: 50vw;
   transition: height var(--animation-duration),
               width var(--animation-duration);
 }
@@ -36,5 +37,6 @@
 
 #logo
 {
+  max-width: 50vw;
   height: 100%;
 }
