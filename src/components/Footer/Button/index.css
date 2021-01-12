@@ -1,4 +1,4 @@
-#footer .button
+footer .button
 {
   background-color: var(--military-secondary);
   border-radius: 50%;
@@ -8,7 +8,7 @@
   min-width: 25px;
 }
 
-#footer .button > svg
+footer .button > svg
 {
   fill: var(--military-blank);
 }

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { Helmet } from 'react-helmet'
 import './index.css'
 import Footer from '../Footer'
@@ -8,14 +7,19 @@ import useSiteMetadata from '../SiteMetadata'
 import { withPrefix } from 'gatsby'
 
 const TemplateWrapper = ({ children }) => {
-  let [scrollPos, setScrollPos] = useState(0)
+  const [scrollPos, setScrollPos] = useState(0)
+
+  const storeScroll = (e) => {
+    if (!e || !e.target || !e.target.scrollTop) {
+      return
+    }
+    setScrollPos(e.target.scrollTop)
+  }
+
   const { title, description } = useSiteMetadata()
-  useScrollPosition(({ prevPos, currPos }) => {
-    setScrollPos(currPos.y)
-    // console.log(prevPos, currPos)
-  })
+
   return (
-    <div>
+    <>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -57,12 +61,15 @@ const TemplateWrapper = ({ children }) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet" />
       </Helmet>
+
       <div id="app" scroll={scrollPos}>
         <Header />
-        {children}
+        <main onScroll={storeScroll}>
+          {children}
+        </main>
         <Footer />
       </div>
-    </div>
+    </>
   )
 }
 

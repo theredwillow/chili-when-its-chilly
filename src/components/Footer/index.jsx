@@ -19,7 +19,7 @@ function Footer() {
   }
   return (
     <>
-      <div id="footer">
+      <footer>
         <div id="button-tray" className="main-display">
           <Button
             name="cause"
@@ -37,7 +37,7 @@ function Footer() {
             handleClick={() => toggleModalOpen('menu')}
           />
         </div>
-      </div>
+      </footer>
       <Modal
         selected={modalOpen}
         handleClose={() => setModalOpen('closed')}

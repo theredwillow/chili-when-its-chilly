@@ -1,24 +1,12 @@
-#header
+header
 {
-  background-color: var(--military-primary);
-  width: 100%;
-  height: var(--header-size);
   padding: var(--header-padding);
   max-height: 20vw;
   min-height: calc(var(--header-size) + (2 * var(--header-padding)));
-  top: 0;
-  z-index: 1;
-  color: var(--military-blank);
   --animation-duration: 2000ms;
   transition: height var(--animation-duration);
-  position: sticky;
   display: flex;
   justify-content: space-between;
-}
-
-#app[scroll='0'] #header
-{
-  height: calc(var(--header-size) * 5);
 }
 
 #a-major-funding-logo
@@ -30,13 +18,3 @@
               width var(--animation-duration);
 }
 
-#app[scroll='0'] #a-major-funding-logo
-{
-  width: calc(var(--header-size) * 5);
-}
-
-#logo
-{
-  max-width: 50vw;
-  height: 100%;
-}
