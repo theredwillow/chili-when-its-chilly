@@ -5,6 +5,9 @@ import Footer from '../Footer'
 import Header from '../Header'
 import useSiteMetadata from '../SiteMetadata'
 import { withPrefix } from 'gatsby'
+import Modal from '../Modal'
+
+const ANIMATION_TIME = 1000;
 
 const TemplateWrapper = ({ children }) => {
   const [scrollPos, setScrollPos] = useState(0)
@@ -17,6 +20,18 @@ const TemplateWrapper = ({ children }) => {
   }
 
   const { title, description } = useSiteMetadata()
+
+  const [modalOpen, setModalOpen] = useState('closed')
+  const toggleModalOpen = (modalName) => {
+    if (new RegExp(modalName).test(modalOpen)) {
+      setModalOpen(`closing ${modalName}`)
+      setTimeout(() => setModalOpen('closed'), ANIMATION_TIME)
+    }
+    else {
+      setModalOpen(`opening ${modalName}`)
+      setTimeout(() => setModalOpen(modalName), 1)
+    }
+  }
 
   return (
     <>
@@ -67,7 +82,14 @@ const TemplateWrapper = ({ children }) => {
         <main onScroll={storeScroll}>
           {children}
         </main>
-        <Footer />
+        <Modal
+          selected={modalOpen}
+          handleClose={() => setModalOpen('closed')}
+        />
+        <Footer
+          modalOpen={modalOpen}
+          toggleModalOpen={toggleModalOpen}
+        />
       </div>
     </>
   )
