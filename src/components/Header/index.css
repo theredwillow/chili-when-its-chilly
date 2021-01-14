@@ -1,7 +1,6 @@
 header
 {
   padding: var(--header-padding);
-  max-height: 20vw;
   min-height: calc(var(--header-size) + (2 * var(--header-padding)));
   --animation-duration: 2000ms;
   transition: height var(--animation-duration);
@@ -11,9 +10,8 @@ header
 
 #a-major-funding-logo
 {
-  height: 100%;
-  width: var(--header-size);
-  max-width: 50vw;
+  max-height: 100%;
+  max-width: 25vw;
   transition: height var(--animation-duration),
               width var(--animation-duration);
 }

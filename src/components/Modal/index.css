@@ -1,19 +1,21 @@
 #modal
 {
   background-color: var(--military-primary);
-  position: fixed;
   bottom: calc(var(--header-size) * 1.25);
   max-height: calc((100% - (2.5 * var(--header-size)) - var(--header-padding)));
+  min-width: 50vw;
+  max-width: 100vh;
   left: 50%;
   transform: translateX(-50%);
   transition: top 1s linear;
-  z-index: 2;
+  z-index: 5;
   border: 5px solid var(--military-highlight);
   padding: 20px;
   color: var(--military-blank);
   display: flex;
   flex-direction: column;
   transition: transform 1s;
+  position: fixed;
 }
 
 #modal button

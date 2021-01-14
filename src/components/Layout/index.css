@@ -37,6 +37,7 @@ header, footer {
   color: var(--military-blank);
   background-color: var(--military-primary);
   z-index: 5;
+  max-height: 10vh;
 }
 
 main {

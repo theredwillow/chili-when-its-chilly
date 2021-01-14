@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import './index.css'
 import Footer from '../Footer'
@@ -11,6 +11,7 @@ const ANIMATION_TIME = 1000;
 
 const TemplateWrapper = ({ children }) => {
   const [scrollPos, setScrollPos] = useState(0)
+  const timer = useRef()
 
   const storeScroll = (e) => {
     if (!e || !e.target || !e.target.scrollTop) {
@@ -22,14 +23,31 @@ const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
 
   const [modalOpen, setModalOpen] = useState('closed')
+
+  const openModal = (modalName) => {
+    setModalOpen(`opening ${modalName}`)
+    timer.current = setTimeout(() => setModalOpen(modalName), 1)
+  }
+
+  const closeModal = (modalName) => {
+    setModalOpen(`closing ${modalName}`)
+    timer.current = setTimeout(() => setModalOpen('closed'), ANIMATION_TIME)
+  }
+
   const toggleModalOpen = (modalName) => {
+    if (timer.current) {
+      clearTimeout(timer.current)
+    }
     if (new RegExp(modalName).test(modalOpen)) {
-      setModalOpen(`closing ${modalName}`)
-      setTimeout(() => setModalOpen('closed'), ANIMATION_TIME)
+      if (/closing/.test(modalOpen)) {
+        openModal(modalName)
+      }
+      else {
+        closeModal(modalName)
+      }
     }
     else {
-      setModalOpen(`opening ${modalName}`)
-      setTimeout(() => setModalOpen(modalName), 1)
+      openModal(modalName)
     }
   }
 
@@ -81,11 +99,11 @@ const TemplateWrapper = ({ children }) => {
         <Header />
         <main onScroll={storeScroll}>
           {children}
+          <Modal
+            selected={modalOpen}
+            handleClose={() => setModalOpen('closed')}
+          />
         </main>
-        <Modal
-          selected={modalOpen}
-          handleClose={() => setModalOpen('closed')}
-        />
         <Footer
           modalOpen={modalOpen}
           toggleModalOpen={toggleModalOpen}
