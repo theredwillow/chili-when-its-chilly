@@ -109,6 +109,7 @@ export const pageQuery = graphql`
         description
         slideshowImages {
           src {
+            publicURL
             childImageSharp {
               fluid {
                 ...GatsbyImageSharpFluid
@@ -120,6 +121,7 @@ export const pageQuery = graphql`
         sections
         sponsorImages {
           src {
+            publicURL
             childImageSharp {
               fluid {
                 ...GatsbyImageSharpFluid

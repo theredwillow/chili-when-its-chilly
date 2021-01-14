@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Img from 'gatsby-image'
+import PreviewCompatibleImage from '../PreviewCompatibleImage'
 import Trophy from './Trophy'
 
 const WinnerBrowser = ({contestName, prevYears}) => {
@@ -71,11 +71,10 @@ const WinnerBrowser = ({contestName, prevYears}) => {
       )
     }
 
-    // FIXME Importing jpg's, should be using svg's with transparent backgrounds
     return (
-      <Img
+      <PreviewCompatibleImage
         className='winner-picture'
-        fixed={openWinner.winnersPicture.childImageSharp.fixed}
+        image={openWinner.winnersPicture}
         alt={getWinnersCopy(true)}
       />
     )

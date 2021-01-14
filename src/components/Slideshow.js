@@ -1,6 +1,6 @@
 import React from 'react'
-import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
+import PreviewCompatibleImage from './PreviewCompatibleImage'
 
 import Carousel from 'nuka-carousel'
 
@@ -10,9 +10,9 @@ const Slideshow = ({images}) => {
   }
 
   images = images.map((image, i) => (
-    <Img
+    <PreviewCompatibleImage
       key={`image-${i}`}
-      fluid={image.src.childImageSharp.fluid}
+      image={image.src}
       alt={image.description || `Image number ${i} in a slideshow`}
     />
   ))

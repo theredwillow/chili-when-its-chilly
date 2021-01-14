@@ -1,6 +1,6 @@
 import React, { useState }  from 'react'
 import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
+import PreviewCompatibleImage from '../PreviewCompatibleImage'
 import WinnerBrowser from './WinnerBrowser'
 import './index.css'
 
@@ -16,9 +16,9 @@ const Competition = ({title, image, prevYears}) => {
   }
 
   return (
-    <div className={`competition`}>
-      <Img
-        fixed={image.childImageSharp.fixed}
+    <div id={title.replace(/ /g, '')} className={`competition`}>
+      <PreviewCompatibleImage
+        image={image}
         alt={title}
       />
       {

@@ -137,9 +137,10 @@ export const cookOffsQuery = graphql`
           frontmatter {
             title
             image {
+              publicURL
               childImageSharp {
-                fixed {
-                  ...GatsbyImageSharpFixed
+                fluid {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -149,9 +150,10 @@ export const cookOffsQuery = graphql`
                 firstPlace {
                   winnersName
                   winnersPicture {
+                    publicURL
                     childImageSharp {
-                      fixed(width: 350) {
-                        ...GatsbyImageSharpFixed
+                      fluid {
+                        ...GatsbyImageSharpFluid
                       }
                     }
                   }
@@ -159,9 +161,10 @@ export const cookOffsQuery = graphql`
                 secondPlace {
                   winnersName
                   winnersPicture {
+                    publicURL
                     childImageSharp {
-                      fixed(width: 350) {
-                        ...GatsbyImageSharpFixed
+                      fluid {
+                        ...GatsbyImageSharpFluid
                       }
                     }
                   }
@@ -169,9 +172,10 @@ export const cookOffsQuery = graphql`
                 thirdPlace {
                   winnersName
                   winnersPicture {
+                    publicURL
                     childImageSharp {
-                      fixed(width: 350) {
-                        ...GatsbyImageSharpFixed
+                      fluid {
+                        ...GatsbyImageSharpFluid
                       }
                     }
                   }
