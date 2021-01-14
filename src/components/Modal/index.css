@@ -3,14 +3,14 @@
   background-color: var(--military-primary);
   bottom: calc(var(--header-size) * 1.25);
   max-height: calc((100% - (2.5 * var(--header-size)) - var(--header-padding)));
-  min-width: 50vw;
+  min-width: 60vw;
   max-width: 100vh;
   left: 50%;
   transform: translateX(-50%);
   transition: top 1s linear;
   z-index: 5;
   border: 5px solid var(--military-highlight);
-  padding: 20px;
+  padding: 10px 20px;
   color: var(--military-blank);
   display: flex;
   flex-direction: column;

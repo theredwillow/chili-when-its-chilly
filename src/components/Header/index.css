@@ -8,6 +8,14 @@ header
   justify-content: space-between;
 }
 
+#logo {
+  text-align: left;
+}
+
+#a-major-funding-link {
+  text-align: right;
+}
+
 #a-major-funding-logo
 {
   max-height: 100%;

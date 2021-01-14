@@ -3,14 +3,14 @@
   justify-content: center;
 }
 
-#bunting
+/* #bunting
 {
   background-image: url('./bunting.png');
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-}
+} */
 
 #mission-statement
 {
@@ -36,6 +36,11 @@
   border-radius: 5px;
   box-shadow: inset 0 0 6px var(--military-blank);
   -webkit-box-shadow: inset 0 0 6px var(--military-blank);
+}
+
+iframe[src*="youtu"] { /* youtu.be OR youtube.com */
+  width: 50vw;
+  height: 25vw;
 }
 
 #donate

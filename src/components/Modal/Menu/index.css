@@ -2,7 +2,8 @@
 {
   background-color: var(--military-secondary);
   margin: 2.5px;
-  padding: 5px;
+  padding: 2vh;
+  font-size: 3vh;
   border-radius: 7.5px;
   color: var(--military-blank);
 }

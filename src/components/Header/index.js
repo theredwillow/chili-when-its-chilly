@@ -7,10 +7,15 @@ import AMajorFunding from './amajorfundinginc.svg'
 
 const Header = () => (
   <header>
-    <Link to="/" id="logo">
+    <Link id="logo" to="/">
       <Logo />
     </Link>
-    <a href="https://www.amajorfunding.com/" target="_blank" rel="noreferrer">
+    <a
+      id="a-major-funding-link"
+      href="https://www.amajorfunding.com/"
+      target="_blank"
+      rel="noreferrer"
+    >
       <img id="a-major-funding-logo" src={AMajorFunding} alt="The logo for A Major Funding Inc." />
     </a>
   </header>
