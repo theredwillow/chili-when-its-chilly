@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import PreviewImageCompatible from '../PreviewCompatibleImage'
 import PropTypes from 'prop-types'
 import './index.css'
 
@@ -18,16 +18,16 @@ const Sponsors = ({images}) => {
           rel="noreferrer"
           key={`sponsors-${i}`}
         >
-          <Img
-            fluid={image.src.childImageSharp.fluid}
+          <PreviewImageCompatible
+            image={image.src}
             alt={image.description || `Sponsor number ${i}`}
           />
         </a>
       )
     : (
-        <Img
+        <PreviewImageCompatible
           key={`sponsors-${i}`}
-          fluid={image.src.childImageSharp.fluid}
+          image={image.src}
           alt={image.description || `Sponsor number ${i}`}
         />
       )
